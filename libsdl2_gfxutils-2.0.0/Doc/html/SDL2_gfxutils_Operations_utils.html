@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Operations &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="next" title="Setters functions" href="SDL2_gfxutils_Setters_utils.html" />
+    <link rel="prev" title="Displaying forms" href="SDL2_gfxutils_Displaying_utils.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Setters_utils.html" title="Setters functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Displaying_utils.html" title="Displaying forms"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="operations">
+<span id="form-operation-functions"></span><h1>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Here are presented the functions which apply an transformation operation on a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a> or on a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a>.</div></blockquote>
+<div class="section" id="pixel-operations-functions">
+<h2>Pixel operations functions<a class="headerlink" href="#pixel-operations-functions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This function are the base for the forms operations functions.</p>
+<p>You can use it to implement your own operations.</p>
+</div></blockquote>
+<hr class="docutils" />
+<dl class="function">
+<dt id="c.rotate">
+Pixel <tt class="descname">rotate</tt><big>(</big>Pixel<em>&nbsp;center</em>, float<em>&nbsp;angle</em>, Pixel<em>&nbsp;pixel</em><big>)</big><a class="headerlink" href="#c.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The center of the rotation.</li>
+<li><strong>angle</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The angle of the rotation in degress.</li>
+<li><strong>pixel</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The pixel to rotate.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A new rotated <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function return the rotated pixel from <a class="reference internal" href="SDL2_gfxutils_Presentation.html#angle-settings-definition"><em>angle degrees</em></a> around the given center in clock sens.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Rotating a <strong>pixel</strong> around the <strong>origin</strong> is easy doing according following formel in <strong>matrix</strong> form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">+-</span>  <span class="o">-+</span>     <span class="o">+--</span>                            <span class="o">--+</span>     <span class="o">+-</span> <span class="o">-+</span>
+<span class="o">|</span> <span class="n">x1</span> <span class="o">|</span>     <span class="o">|</span> <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>   <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>    <span class="mi">0</span>  <span class="o">|</span>     <span class="o">|</span> <span class="n">x</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">y2</span> <span class="o">|</span>  <span class="o">=</span>  <span class="o">|</span> <span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>    <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>    <span class="mi">0</span>  <span class="o">|</span>  <span class="o">*</span>  <span class="o">|</span> <span class="n">y</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0</span>  <span class="o">|</span>     <span class="o">|</span>    <span class="mi">0</span>             <span class="mi">0</span>          <span class="mi">1</span>  <span class="o">|</span>     <span class="o">|</span> <span class="mi">0</span> <span class="o">|</span>
+<span class="o">+-</span>  <span class="o">-+</span>     <span class="o">+--</span>                            <span class="o">--+</span>     <span class="o">+-</span> <span class="o">-+</span>
+</pre></div>
+</div>
+<p>So you can simply <strong>translate</strong> <a class="reference internal" href="#pixel-operation-origin"><em>the pixel in accord to the origin</em></a> <strong>rotate</strong> it and <strong>translate</strong> it <strong>back</strong>.</p>
+<p>But <strong>SDL2_gfxutils</strong> use a function based on matrix to <strong>rotate</strong> the pixel <strong>around</strong> an <strong>arbitrary point</strong>.</p>
+<p class="last">See the source at file <a class="reference download internal" href="_downloads/base_functions.c"><tt class="xref download docutils literal"><span class="pre">base_functions.c</span></tt></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.scale">
+Pixel <tt class="descname">scale</tt><big>(</big>Pixel<em>&nbsp;center</em>, float<em>&nbsp;factor</em>, Pixel<em>&nbsp;pixel</em><big>)</big><a class="headerlink" href="#c.scale" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The center of the form to scale.</li>
+<li><strong>factor</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The scaling factor.</li>
+<li><strong>pixel</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The pixel to scale.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A new scaled pixel (position).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function return the new position from pixel scaled by factor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">factor</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">scaling</span> <span class="n">littler</span><span class="o">.</span>
+
+<span class="n">factor</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">scaling</span> <span class="n">greater</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>A pixel can only be <strong>corrected scaled</strong> in accord <strong>to</strong> the <strong>origin</strong>.</p>
+<p class="last">So you can simply <strong>translate</strong> <a class="reference internal" href="#pixel-operation-origin"><em>the pixel in accord to the origin</em></a> multiply <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> with the <strong>scaling</strong> factor and <strong>translate</strong> it <strong>back</strong>.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.translate">
+Pixel <tt class="descname">translate</tt><big>(</big>Pixel<em>&nbsp;pixel</em>, float<em>&nbsp;x</em>, float<em>&nbsp;y</em><big>)</big><a class="headerlink" href="#c.translate" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The pixel to translate.</li>
+<li><strong>x</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The translation value from the x axes (even negativ).</li>
+<li><strong>y</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The translation value from the y axes (even negativ).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A new pixel translated from <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function translate a pixel from value <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <strong>y</strong> can be negativ for translating in direction of the left or to the top.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For translating a pixel simply <strong>add</strong> (<em>even negativ</em>) the wanted values to the <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> from the pixel <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a> members.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.mirror">
+Pixel <tt class="descname">mirror</tt><big>(</big>Pixel<em>&nbsp;pixel</em>, Pixel<em>&nbsp;center</em>, char<em>&nbsp;axes</em><big>)</big><a class="headerlink" href="#c.mirror" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The pixel to mirror.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The center of the mirroring.</li>
+<li><strong>axes</strong> (<tt class="xref c c-type docutils literal"><span class="pre">char</span></tt>) &#8211; &#8216;X&#8217; or &#8216;Y&#8217;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A new pixel mirrored around center trough the X or Y axes.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function mirror a pixel through the <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> (<strong>Vertical</strong>) or <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> (<strong>Horizontal</strong>) axes in relationship to the given center.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The center of the mirroring.</p>
+<p>The center argument given the mirroring center and in case of mirroring on the:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>X axes only the <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> of the <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a> counting.</li>
+<li>Y axes only the <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> of the <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a> counting.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Take care of the <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> operation function condition.</p>
+</div>
+</dd></dl>
+
+<div class="section" id="operations-on-a-pixel-according-to-the-origin">
+<span id="pixel-operation-origin"></span><h3>Operations on a pixel according to the origin<a class="headerlink" href="#operations-on-a-pixel-according-to-the-origin" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">x</span> <span class="o">+=</span> <span class="o">-</span><span class="n">center</span><span class="p">.</span><span class="n">x</span> <span class="p">;</span> <span class="n">y</span> <span class="o">+=</span> <span class="o">-</span><span class="n">center</span><span class="p">.</span><span class="n">y</span>  <span class="c1">// (translate according the origin).</span>
+
+<span class="c1">// Operation on the pixel.</span>
+
+<span class="n">x</span> <span class="o">+=</span> <span class="n">center</span><span class="p">.</span><span class="n">x</span> <span class="p">;</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">center</span><span class="p">.</span><span class="n">y</span>  <span class="c1">// (translate it back).</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="forms-operations-functions">
+<h2>Forms operations functions<a class="headerlink" href="#forms-operations-functions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>They all apply a transformation on a form by calling the pixels operations functions.</p>
+<p>By using a pointer on the generic <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> type form to transform given as argument.</p>
+</div></blockquote>
+<hr class="docutils" />
+<dl class="function">
+<dt id="c.rotate_form">
+void <tt class="descname">rotate_form</tt><big>(</big>Form<em>&nbsp;*form</em>, float<em>&nbsp;angle</em><big>)</big><a class="headerlink" href="#c.rotate_form" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt>) &#8211; A pointer on the form to rotate.</li>
+<li><strong>angle</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The angle of the rotation.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function perform a <strong>rotation</strong> on a <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt> itself, through an <strong>pointer</strong> on it, from <a class="reference internal" href="SDL2_gfxutils_Presentation.html#angle-settings-definition"><em>angle degrees</em></a> around the <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt> from the <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Rotation center.</p>
+<p>You can change temporary the center of the form you want to rotate the form around the wanted center,</p>
+<p>with the function <a class="reference internal" href="SDL2_gfxutils_Setters_utils.html#set-form-center-function"><em>set_form_center()</em></a>.</p>
+<p>instead of the center of the form itself.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">warning:</th><td class="field-body">If you use a display function which strikethrough from the center: the displaying will degenerate (maybe you do it express).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<span class="target" id="scale-form-function"></span><dl class="function">
+<dt id="c.scale_form">
+void <tt class="descname">scale_form</tt><big>(</big>Form<em>&nbsp;*form</em>, float<em>&nbsp;factor</em><big>)</big><a class="headerlink" href="#c.scale_form" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt>) &#8211; A pointer on the form to scale.</li>
+<li><strong>factor</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The scaling factor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function <strong>scale</strong> the adressed <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt> from value <tt class="xref c c-data docutils literal"><span class="pre">factor</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Scaling factor.</p>
+<ul class="last simple">
+<li>if factor &gt; 1.0 the size of the form increase.</li>
+<li>if factor &lt; 1.0 the size from the form decrease.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can set a new radius (which will update the <tt class="xref c c-data docutils literal"><span class="pre">length</span></tt> <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> type member) directly,</p>
+<p>With the function <a class="reference internal" href="SDL2_gfxutils_Setters_utils.html#set-form-radius-function"><em>set_form_radius()</em></a></p>
+<p>What permit to change the size of the form without using a factor but a radius instead.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">warning:</th><td class="field-body"><strong>Use only integers values</strong> or not more than <strong>3 precision</strong> (<tt class="xref c c-data docutils literal"><span class="pre">%.3f</span></tt>) otherwise your request will not be exactly satisfy.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<span class="target" id="translate-form-function"></span><dl class="function">
+<dt id="c.translate_form">
+void <tt class="descname">translate_form</tt><big>(</big>Form<em>&nbsp;*form</em>, float<em>&nbsp;x</em>, float<em>&nbsp;y</em><big>)</big><a class="headerlink" href="#c.translate_form" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt>) &#8211; A pointer on the form to translate.</li>
+<li><strong>x</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The translation value from the x axes (even negativ).</li>
+<li><strong>y</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The translation value from the y axes (even negativ).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function <strong>translate</strong> the adressed <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt> from values <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><strong>x</strong> and <strong>y</strong> can be negativ for translating in direction of the left or to the top.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Warning:</th><td class="field-body">Use only integers values or not more than 3 precision (%.3f) otherwise your request will not be exactly satisfy.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.mirror_form">
+void <tt class="descname">mirror_form</tt><big>(</big>Form<em>&nbsp;*form</em>, Pixel<em>&nbsp;center</em>, char<em>&nbsp;axes</em><big>)</big><a class="headerlink" href="#c.mirror_form" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; A pointer on the form to mirror.</li>
+<li><strong>center</strong> &#8211; The center for the mirroring.</li>
+<li><strong>axes</strong> (<tt class="xref c c-type docutils literal"><span class="pre">char</span></tt>) &#8211; &#8216;X&#8217; or &#8216;Y&#8217;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function <strong>mirror</strong> the given <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt> through the <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> (<strong>Vertical</strong>) or <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> (<strong>Horizontal</strong>) axes in relationship to the given center.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>This function is subject of a big condition to work properly !!!</strong></p>
+<p>All coordinates must be at one side from the center axe.</p>
+<p>Argument axes:</p>
+<p>&#8216;X&#8217;) If mirroring over axes <strong>X</strong> all pixels must must be <strong>above</strong> or <strong>below</strong> from the <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt> argument <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a> type member.</p>
+<p class="last">&#8216;Y&#8217;) If mirroring over axes <strong>Y</strong> all pixels must must be at the <strong>right</strong> or at the <strong>left</strong> from the <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt> argument <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a> type member.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">Form *remove_doubles_form(Form *form) ;</tt></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt>) &#8211; A pointer on the form to mirror.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>The same form with doubles (same values) coordinates removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">The given form is free and reallocated (sorry can&#8217;t do otherwise).</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Operations</a><ul>
+<li><a class="reference internal" href="#pixel-operations-functions">Pixel operations functions</a><ul>
+<li><a class="reference internal" href="#operations-on-a-pixel-according-to-the-origin">Operations on a pixel according to the origin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forms-operations-functions">Forms operations functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Displaying_utils.html"
+                        title="previous chapter">Displaying forms</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Setters_utils.html"
+                        title="next chapter">Setters functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Operations_utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Setters_utils.html" title="Setters functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Displaying_utils.html" title="Displaying forms"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

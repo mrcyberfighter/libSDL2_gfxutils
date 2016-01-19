@@ -1,0 +1,16 @@
+This is the second release from the SDL2_gfxutils library:
+
+SDL2_gfxutils.2.0.0
+
+release date: 17/01/2016.
+release version: 2.0.0
+License: GPLv3
+
+HTML documentation generated with sphinx.
+HTML documentation license: Creative Commons Public License.
+
+author: Eddie Bruggemann
+contact: mrcyberfighter@gmail.com
+
+sea the README file for further informations (SDL2_gfxutils have been entirely rewritten).
+

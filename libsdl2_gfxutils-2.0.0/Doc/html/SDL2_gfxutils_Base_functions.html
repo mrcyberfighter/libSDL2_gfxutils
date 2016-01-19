@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Base functions &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="next" title="Forms generating functions" href="SDL2_gfxutils_Forms_generating_utils.html" />
+    <link rel="prev" title="SDL2_gfxutils defined types" href="SDL2_gfxutils_Defined_types.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Forms_generating_utils.html" title="Forms generating functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Defined_types.html" title="SDL2_gfxutils defined types"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="base-functions">
+<h1>Base functions<a class="headerlink" href="#base-functions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Here are describe the geometric, base functions functions, from <strong>SDL2_gfxutils</strong> used from the differents forms generating functions.</div></blockquote>
+<div class="section" id="angles">
+<h2>Angles<a class="headerlink" href="#angles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.get_angle">
+float <tt class="descname">get_angle</tt><big>(</big>int<em>&nbsp;position</em>, float<em>&nbsp;scale</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.get_angle" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<tt class="xref c c-type docutils literal"><span class="pre">int</span></tt>) &#8211; Needed for positional purpose: number of scaling units.</li>
+<li><strong>scale</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; Scaling of the angle.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An additionnal offset to add.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">An angle in degrees.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function return an angle value according to the given settings,</p>
+<p>by applying following formel:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">360.0</span><span class="o">/</span><span class="n">scale</span> <span class="o">*</span> <span class="n">position</span> <span class="o">+</span> <span class="n">orientation</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="distance">
+<span id="get-distance-pixels"></span><h2>Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.get_distance_pixels">
+float <tt class="descname">get_distance_pixels</tt><big>(</big>Pixel<em>&nbsp;px1</em>, Pixel<em>&nbsp;px2</em><big>)</big><a class="headerlink" href="#c.get_distance_pixels" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>px1</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The start pixel from the distance.</li>
+<li><strong>px2</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The end pixel from the distance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The distance between <tt class="xref c c-data docutils literal"><span class="pre">px1</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">px2</span></tt>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="pixel">
+<h2>Pixel<a class="headerlink" href="#pixel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.get_pixel_coords">
+Pixel <tt class="descname">get_pixel_coords</tt><big>(</big>uint32_t<em>&nbsp;position</em>, uint32_t<em>&nbsp;scale</em>, float<em>&nbsp;length</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.get_pixel_coords" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; An unsigned integer needed for positional purpose.</li>
+<li><strong>scale</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; Scaling of the angle.</li>
+<li><strong>length</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; radius.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; center.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An additionnal offset to add.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The pixel initialized in relationship to the given settings.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function return an pixel initialized in relationship to the given settings,</p>
+<p>by first getting the angle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">float</span> <span class="n">angle_degrees</span> <span class="o">=</span> <span class="n">get_angle</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">orientation</span><span class="p">)</span>   <span class="p">;</span>
+<span class="nb">float</span> <span class="n">radians</span> <span class="o">=</span> <span class="n">angle_degrees</span> <span class="o">/</span> <span class="mf">180.0</span> <span class="o">*</span> <span class="n">PI</span>  <span class="p">;</span>
+</pre></div>
+</div>
+<p>and applying the following formel to get the <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> values:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">Pixel</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">cosf</span><span class="p">(</span><span class="n">radians</span><span class="p">)</span> <span class="o">*</span> <span class="n">length</span> <span class="o">+</span> <span class="n">center</span><span class="p">.</span><span class="n">x</span> <span class="p">;</span>
+<span class="n">Pixel</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sinf</span><span class="p">(</span><span class="n">radians</span><span class="p">)</span> <span class="o">*</span> <span class="n">length</span> <span class="o">+</span> <span class="n">center</span><span class="p">.</span><span class="n">y</span> <span class="p">;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="get-middle-from-line"></span><dl class="function">
+<dt id="c.get_middle_from_line">
+Pixel <tt class="descname">get_middle_from_line</tt><big>(</big>Line<em>&nbsp;line</em><big>)</big><a class="headerlink" href="#c.get_middle_from_line" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>line</strong> (<tt class="xref c c-data docutils literal"><span class="pre">Line</span></tt>) &#8211; The line to get the middle point from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The pixel middle point from the given line.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="line">
+<span id="generate-segment"></span><h2>Line<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_segment">
+Line *<tt class="descname">generate_segment</tt><big>(</big>Pixel<em>&nbsp;start_point</em>, float<em>&nbsp;length</em>, float<em>&nbsp;angle</em><big>)</big><a class="headerlink" href="#c.generate_segment" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start_point</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The segment start point.</li>
+<li><strong>length</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The length of the segment.</li>
+<li><strong>angle</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; segment incline <a class="reference internal" href="SDL2_gfxutils_Presentation.html#angle-settings-definition"><em>angle</em></a>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#line-type"><em>Line *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">An line starting at <tt class="xref c c-data docutils literal"><span class="pre">start_point</span></tt> from length <tt class="xref c c-data docutils literal"><span class="pre">length</span></tt> incline from <a class="reference internal" href="SDL2_gfxutils_Presentation.html#angle-settings-definition"><em>angle</em></a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="arc">
+<h2>Arc<a class="headerlink" href="#arc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_circle_arc">
+Arc *<tt class="descname">generate_circle_arc</tt><big>(</big>float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;start_pos</em>, float<em>&nbsp;circle_part</em><big>)</big><a class="headerlink" href="#c.generate_circle_arc" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; the radius starting from the center argument.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The center from where generate the circle arc.</li>
+<li><strong>start_pos</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The start position given as an <a class="reference internal" href="SDL2_gfxutils_Presentation.html#angle-settings-definition"><em>angle in degress</em></a>.</li>
+<li><strong>circle_part</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An angle value, in degrees, representing the part of an entire circle of the arc and so the length of the arc in relationship to the radius.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#arc-type"><em>Arc *</em></a>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>A pointer on an <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#arc-type"><em>Arc</em></a>.</p>
+<ul class="simple">
+<li>from radius <tt class="xref c c-data docutils literal"><span class="pre">radius</span></tt>.</li>
+<li>from center <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt>.</li>
+<li>length from part of an circle <tt class="xref c c-data docutils literal"><span class="pre">circle_part</span></tt>.</li>
+<li>starting at offset <tt class="xref c c-data docutils literal"><span class="pre">start_pos</span></tt> which will give the start point from the arc.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Base functions</a><ul>
+<li><a class="reference internal" href="#angles">Angles</a></li>
+<li><a class="reference internal" href="#distance">Distance</a></li>
+<li><a class="reference internal" href="#pixel">Pixel</a></li>
+<li><a class="reference internal" href="#line">Line</a></li>
+<li><a class="reference internal" href="#arc">Arc</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Defined_types.html"
+                        title="previous chapter">SDL2_gfxutils defined types</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Forms_generating_utils.html"
+                        title="next chapter">Forms generating functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Base_functions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Forms_generating_utils.html" title="Forms generating functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Defined_types.html" title="SDL2_gfxutils defined types"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

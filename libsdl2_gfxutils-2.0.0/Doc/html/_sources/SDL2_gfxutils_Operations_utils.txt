@@ -1,0 +1,242 @@
+.. _form-operation-functions:
+
+Operations
+==========
+
+  Here are presented the functions which apply an transformation operation on a :ref:`Pixel <Pixel-type>` or on a :ref:`Form <Form-type>`.
+
+Pixel operations functions
+--------------------------
+
+  This function are the base for the forms operations functions.
+
+  You can use it to implement your own operations.
+
+----------------------------------------------------------------
+
+.. c:function:: Pixel rotate(Pixel center, float angle, Pixel pixel)
+
+  :param center: The center of the rotation.
+  :type center: :c:type:`Pixel`
+  :param angle: The angle of the rotation in degress.
+  :type angle: :c:type:`float`
+  :param pixel: The pixel to rotate.
+  :type  pixel: :c:type:`Pixel`
+  :rtype: :ref:`Pixel <Pixel-type>`.
+  :return: A new rotated :ref:`Pixel <Pixel-type>`.
+
+  This function return the rotated pixel from :ref:`angle degrees<angle-settings-definition>` around the given center in clock sens.
+
+  .. note::
+
+    Rotating a **pixel** around the **origin** is easy doing according following formel in **matrix** form:
+
+    .. code-block:: python
+
+      +-  -+     +--                            --+     +- -+
+      | x1 |     | cos(angle)   -sin(angle)    0  |     | x |
+      | y2 |  =  | sin(angle)    cos(angle)    0  |  *  | y |
+      | 0  |     |    0             0          1  |     | 0 |
+      +-  -+     +--                            --+     +- -+
+
+    So you can simply **translate** :ref:`the pixel in accord to the origin <pixel-operation-origin>` **rotate** it and **translate** it **back**.
+ 
+    But **SDL2_gfxutils** use a function based on matrix to **rotate** the pixel **around** an **arbitrary point**.
+
+    See the source at file :download:`base_functions.c <./_Sources/Forms/base_functions.c>`.
+
+
+.. c:function:: Pixel scale(Pixel center, float factor, Pixel pixel)
+
+  :param center: The center of the form to scale.
+  :type center: :c:type:`Pixel`
+  :param factor: The scaling factor.
+  :type factor: :c:type:`float`
+  :param pixel: The pixel to scale.
+  :type  pixel: :c:type:`Pixel`
+  :rtype: :ref:`Pixel <Pixel-type>`.
+  :return: A new scaled pixel (position).
+
+  This function return the new position from pixel scaled by factor:
+
+  .. code-block:: python
+
+    factor < 1 == scaling littler.
+
+    factor > 1 == scaling greater.
+
+  .. note::
+
+    A pixel can only be **corrected scaled** in accord **to** the **origin**.
+
+    So you can simply **translate** :ref:`the pixel in accord to the origin <pixel-operation-origin>` multiply :c:data:`x` and :c:data:`y` with the **scaling** factor and **translate** it **back**.
+ 
+
+
+
+.. c:function:: Pixel translate(Pixel pixel, float x, float y)
+
+  :param pixel: The pixel to translate.
+  :type  pixel: :c:type:`Pixel`
+  :param x: The translation value from the x axes (even negativ).
+  :type x: :c:type:`float`
+  :param y: The translation value from the y axes (even negativ).
+  :type y: :c:type:`float`
+  :rtype: :ref:`Pixel <Pixel-type>`.
+  :return: A new pixel translated from :c:data:`x` and :c:data:`y`.
+
+  This function translate a pixel from value :c:data:`x` and :c:data:`y`.
+
+  :note: :c:data:`x` and **y** can be negativ for translating in direction of the left or to the top.
+
+  .. note::
+
+    For translating a pixel simply **add** (*even negativ*) the wanted values to the :c:data:`x` and :c:data:`y` from the pixel :ref:`Pixel <Pixel-type>` members.
+
+
+
+.. c:function:: Pixel mirror(Pixel pixel, Pixel center, char axes)
+
+  :param pixel: The pixel to mirror.
+  :type pixel: :c:type:`Pixel`
+  :param center: The center of the mirroring.
+  :type  center: :c:type:`Pixel`
+  :param axes: 'X' or 'Y'.
+  :type  axes: :c:type:`char`
+  :rtype: :ref:`Pixel <Pixel-type>`.
+  :return: A new pixel mirrored around center trough the X or Y axes.
+
+  This function mirror a pixel through the :c:data:`x` (**Vertical**) or :c:data:`y` (**Horizontal**) axes in relationship to the given center.
+
+  .. note:: The center of the mirroring.
+
+    The center argument given the mirroring center and in case of mirroring on the:
+
+      * X axes only the :c:data:`x` of the :ref:`Pixel <Pixel-type>` counting.
+
+      * Y axes only the :c:data:`y` of the :ref:`Pixel <Pixel-type>` counting.
+
+  .. warning::
+
+    Take care of the :ref:`Form <Form-type>` operation function condition.
+
+
+.. _pixel-operation-origin:
+
+Operations on a pixel according to the origin
++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c
+
+  x += -center.x ; y += -center.y  // (translate according the origin).
+
+  // Operation on the pixel.
+ 
+  x += center.x ; y += center.y  // (translate it back).
+
+Forms operations functions
+--------------------------
+
+  They all apply a transformation on a form by calling the pixels operations functions.
+
+  By using a pointer on the generic :ref:`Form <Form-type>` type form to transform given as argument.
+
+-----------------------------------------------------------------------------------------------------
+
+.. c:function:: void rotate_form(Form *form, float angle)
+
+  :param form: A pointer on the form to rotate.
+  :type  form: :c:type:`Form`
+  :param angle: The angle of the rotation.
+  :type  angle: :c:type:`float`
+  :rtype: :c:type:`void`.
+
+  This function perform a **rotation** on a :c:data:`form` itself, through an **pointer** on it, from :ref:`angle degrees<angle-settings-definition>` around the :c:data:`center` from the :c:data:`form`.
+
+  .. note:: Rotation center.
+
+    You can change temporary the center of the form you want to rotate the form around the wanted center,
+
+    with the function :ref:`set_form_center() <set-form-center-function>`.
+
+    instead of the center of the form itself.
+
+    :warning: If you use a display function which strikethrough from the center: the displaying will degenerate (maybe you do it express).
+
+.. _scale-form-function:
+ 
+.. c:function:: void scale_form(Form *form, float factor)
+
+  :param form: A pointer on the form to scale.
+  :type  form: :c:type:`Form`
+  :param factor: The scaling factor.
+  :type  factor: :c:type:`float`
+  :rtype: :c:type:`void`.
+
+  This function **scale** the adressed :c:data:`form` from value :c:data:`factor`.
+
+  .. note:: Scaling factor.
+
+    * if factor > 1.0 the size of the form increase.
+
+    * if factor < 1.0 the size from the form decrease.
+
+  .. note::
+
+    You can set a new radius (which will update the :c:data:`length` :ref:`Form <Form-type>` type member) directly,
+
+    With the function :ref:`set_form_radius() <set-form-radius-function>`
+
+    What permit to change the size of the form without using a factor but a radius instead.
+
+    :warning: **Use only integers values** or not more than **3 precision** (:c:data:`%.3f`) otherwise your request will not be exactly satisfy.
+
+.. _translate-form-function:
+
+.. c:function:: void translate_form(Form *form, float x, float y)
+
+  :param form: A pointer on the form to translate.
+  :type  form: :c:type:`Form`
+  :param x: The translation value from the x axes (even negativ).
+  :type  x: :c:type:`float`
+  :param y: The translation value from the y axes (even negativ).
+  :type  y: :c:type:`float`
+  :rtype: :c:type:`void`.
+
+  This function **translate** the adressed :c:data:`form` from values :c:data:`x` and :c:data:`y`.
+
+  :note: **x** and **y** can be negativ for translating in direction of the left or to the top.
+
+  :warning: Use only integers values or not more than 3 precision (%.3f) otherwise your request will not be exactly satisfy.
+
+.. c:function:: void mirror_form(Form *form, Pixel center, char axes)
+
+  :param form: A pointer on the form to mirror.
+  :type  form: :c:type:`Form`
+  :param center: The center for the mirroring.
+  :type  form: :c:type:`Pixel`
+  :param axes: 'X' or 'Y'.
+  :type  axes: :c:type:`char`
+  :rtype: :c:type:`void`.
+
+  This function **mirror** the given :c:data:`form` through the :c:data:`x` (**Vertical**) or :c:data:`y` (**Horizontal**) axes in relationship to the given center.
+
+  .. warning:: **This function is subject of a big condition to work properly !!!**
+
+    All coordinates must be at one side from the center axe.
+
+    Argument axes:
+
+    'X') If mirroring over axes **X** all pixels must must be **above** or **below** from the :c:data:`center` argument :c:data:`x` :ref:`Pixel <Pixel-type>` type member.
+
+    'Y') If mirroring over axes **Y** all pixels must must be at the **right** or at the **left** from the :c:data:`center` argument :c:data:`y` :ref:`Pixel <Pixel-type>` type member.
+   
+.. c:function:: Form *remove_doubles_form(Form *form) ;
+ 
+  :param form: A pointer on the form to mirror.
+  :type  form: :c:type:`Form`
+  :rtype: :ref:`Form * <Form-type>`
+  :return: The same form with doubles (same values) coordinates removed.
+
+   :note: The given form is free and reallocated (sorry can't do otherwise).
+     

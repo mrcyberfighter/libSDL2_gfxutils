@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SDL2_gfxutils header file &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="prev" title="SDL2_gfxutils Images gallery" href="SDL2_gfxutils_Images_gallery.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Images_gallery.html" title="SDL2_gfxutils Images gallery"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sdl2-gfxutils-header-file">
+<h1>SDL2_gfxutils header file<a class="headerlink" href="#sdl2-gfxutils-header-file" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/************************************************************************************</span>
+<span class="cm"> * SDL2_gfxutils a SDL2_gfx forms generating and manipulating helper functions set. *</span>
+<span class="cm"> * Copyright (©) 2016 Brüggemann Eddie &lt;mrcyberfighter@gmail.com&gt;.                  *</span>
+<span class="cm"> *                                                                                  *</span>
+<span class="cm"> * This file is part of SDL2_gfxutils.                                              *</span>
+<span class="cm"> * SDL2_gfxutils is free software: you can redistribute it and/or modify            *</span>
+<span class="cm"> * it under the terms of the GNU General Public License as published by             *</span>
+<span class="cm"> * the Free Software Foundation, either version 3 of the License, or                *</span>
+<span class="cm"> * (at your option) any later version.                                              *</span>
+<span class="cm"> *                                                                                  *</span>
+<span class="cm"> * SDL2_gfxutils is distributed in the hope that it will be useful,                 *</span>
+<span class="cm"> * but WITHOUT ANY WARRANTY; without even the implied warranty of                   *</span>
+<span class="cm"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                     *</span>
+<span class="cm"> * GNU General Public License for more details.                                     *</span>
+<span class="cm"> *                                                                                  *</span>
+<span class="cm"> * You should have received a copy of the GNU General Public License                *</span>
+<span class="cm"> * along with SDL2_gfxutils. If not, see &lt;http://www.gnu.org/licenses/&gt;             *</span>
+<span class="cm"> ************************************************************************************/</span>
+
+<span class="cp">#ifndef SDL2_GFXUTILS_HH  </span><span class="cm">/** SDL2_gfxutils inclusion guard **/</span><span class="cp"></span>
+<span class="cp">#define SDL2_GFXUTILS_HH  </span><span class="cm">/** SDL2_gfxutils inclusion guard **/</span><span class="cp"></span>
+
+<span class="cp">#include &lt;SDL2/SDL.h&gt;</span>
+<span class="cp">#include &lt;SDL2/SDL2_gfxPrimitives.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdbool.h&gt;</span>
+<span class="cp">#include &lt;stdint.h&gt;</span>
+<span class="cp">#include &lt;math.h&gt;</span>
+
+<span class="cm">/* Définition of macro EXTERN_C for C++ compatibility */</span>
+<span class="cp">#ifndef EXTERN_C</span>
+<span class="cp">#ifdef __cplusplus</span>
+<span class="cp">#define EXTERN_C extern &quot;C&quot;</span>
+<span class="cp">#else</span>
+<span class="cp">#define EXTERN_C</span>
+<span class="cp">#endif</span>
+<span class="cp">#endif</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Color_</span> <span class="p">{</span>
+  <span class="kt">uint8_t</span> <span class="n">r</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">g</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">b</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Color</span><span class="p">;</span>
+
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Pixel_</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Pixel</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Segment_</span> <span class="p">{</span>
+  <span class="n">Pixel</span> <span class="n">xy1</span><span class="p">;</span>
+  <span class="n">Pixel</span> <span class="n">xy2</span><span class="p">;</span>
+  <span class="n">Color</span> <span class="n">color</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Line</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Coords_</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Coords</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Polygon_</span> <span class="p">{</span>
+  <span class="n">Coords</span> <span class="n">coords</span><span class="p">;</span>
+  <span class="n">Pixel</span> <span class="n">center</span><span class="p">;</span>
+  <span class="n">Color</span> <span class="n">color</span><span class="p">;</span>
+  <span class="kt">uint16_t</span> <span class="n">count</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">length</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">real_length</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">orientation</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Polygon</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Arc</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Hexagram</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Pentagram</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Star</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Spiral</span><span class="p">;</span>
+
+
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Form</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Arc</span> <span class="n">Form</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Hexagram</span> <span class="n">Form</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Pentagram</span> <span class="n">Form</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Spiral</span> <span class="n">Form</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Star</span> <span class="n">Form</span><span class="p">;</span>
+
+
+
+<span class="cm">/** Base functions:</span>
+<span class="cm">  ****************/</span>
+
+
+<span class="cm">/** This function return an pixel initialized in relationship to the given settings. **/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pixel</span> <span class="nf">get_pixel_coords</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">position</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">scale</span><span class="p">,</span> <span class="kt">float</span> <span class="n">length</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+
+<span class="cm">/** This function compute the pixel middle point from the given line. **/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pixel</span> <span class="nf">get_middle_from_line</span><span class="p">(</span><span class="n">Line</span> <span class="n">line</span><span class="p">);</span>
+
+
+<span class="cm">/** Return a pointer on a Line starting at start_point, from length length, incline from angle.</span>
+<span class="cm">  *********************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Line</span> <span class="o">*</span><span class="nf">generate_segment</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">start_point</span><span class="p">,</span> <span class="kt">float</span> <span class="n">length</span><span class="p">,</span> <span class="kt">float</span> <span class="n">angle</span><span class="p">);</span>
+
+
+<span class="cm">/** Generate an arc from radius radius, from center center,</span>
+<span class="cm">  * length from part of an circle circle_part,</span>
+<span class="cm">  * starting at offset start_pos.</span>
+<span class="cm">  ********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Arc</span> <span class="o">*</span><span class="nf">generate_circle_arc</span><span class="p">(</span><span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">start_pos</span><span class="p">,</span> <span class="kt">float</span> <span class="n">circle_part</span><span class="p">);</span>
+
+<span class="cm">/** ************************************************************************************************** **/</span>
+
+
+
+<span class="cm">/** Polygons:</span>
+<span class="cm">  ***********/</span>
+
+<span class="cm">/** Return an regular convex polygon according to the given settings.</span>
+<span class="cm">  * with sides sides, with radius length radius, having for center center, incline according orientation.</span>
+<span class="cm">  *******************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_polygon_radius</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generated an polygon which corners are arcs</span>
+<span class="cm">  * with sides sides, with radius length radius, having for center center, incline according orientation.</span>
+<span class="cm">  *******************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_corners_rounded_polygon</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generate an polygon which sides are arcs.</span>
+<span class="cm">  * with sides sides, with radius length radius, having for center center, incline according orientation.</span>
+<span class="cm">  *******************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_sides_rounded_polygon</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generated an rounded polygon alternating arcs rounded to the outside and to the inside of the polygon.</span>
+<span class="cm">  * with sides sides, with radius length radius, having for center center, incline according orientation.</span>
+<span class="cm">  ********************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_rounded_inside_out_polygon</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generated an polygon with half-circle rounded to the inside from the half sum from the sides of the polygon</span>
+<span class="cm">  * and the other half is even an arc or an straight line according to the side_arcs boolean value.</span>
+<span class="cm">  * with sides sides, with radius length radius, having for center center, incline according orientation.</span>
+<span class="cm">  *************************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_alternate_inside_half_circle_polygon</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">side_arcs</span><span class="p">);</span>
+
+<span class="cm">/** Generated an polygon with half-circle rounded to the outside from the half sum from the sides of the polygon</span>
+<span class="cm">  * and the other half is even an arc or an straight line according to the side_arcs boolean value.</span>
+<span class="cm">  * with sides sides, with radius length radius, having for center center, incline according orientation.</span>
+<span class="cm">  **************************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_alternate_outside_half_circle_polygon</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">side_arcs</span><span class="p">);</span>
+
+<span class="cm">/** ******************************************************************************************************************************** **/</span>
+
+
+
+
+<span class="cm">/** Pentagram:</span>
+<span class="cm">  ************/</span>
+
+<span class="cm">/** Generate an 5 extremity star with an centered pentagon from which every vertex go to the center.</span>
+<span class="cm">  * From radius radius, having for center center, incline according orientation.</span>
+<span class="cm">  **************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pentagram</span> <span class="o">*</span><span class="nf">generate_pentagram</span><span class="p">(</span><span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generate an 5 extremity star.</span>
+<span class="cm">  * With the particularity that the resulting star is not an regular star but an pentagram star.</span>
+<span class="cm">  * From radius radius, having for center center, incline according orientation.</span>
+<span class="cm">  **********************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Star</span> <span class="o">*</span><span class="nf">generate_pentagram_star</span><span class="p">(</span><span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** ********************************************************************** **/</span>
+
+
+
+<span class="cm">/** Hexagram:</span>
+<span class="cm">  ***********/</span>
+
+<span class="cm">/** Generate an 5 extremity star with an centered hexagon from which every vertex go to the center.</span>
+<span class="cm">  * From radius radius, having for center center, incline according orientation.</span>
+<span class="cm">  *************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Hexagram</span> <span class="o">*</span><span class="nf">generate_hexagram</span><span class="p">(</span><span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generate an 6 extremity star.</span>
+<span class="cm">  * With the particularity that the resulting star is not an regular star but an hexagram star.</span>
+<span class="cm">  * From radius radius, having for center center, incline according orientation.</span>
+<span class="cm">  *********************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Star</span> <span class="o">*</span><span class="nf">generate_hexagram_star</span><span class="p">(</span><span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** ********************************************************************* **/</span>
+
+
+
+<span class="cm">/** Stars:</span>
+<span class="cm">  ********/</span>
+
+<span class="cm">/** generate an simply star with the wanted settings:</span>
+<span class="cm"> *  with pikes number of pikes,</span>
+<span class="cm"> *  from radius radius,</span>
+<span class="cm"> *  having for center center,</span>
+<span class="cm"> *  incline according orientation.</span>
+<span class="cm"> ****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Star</span> <span class="o">*</span><span class="nf">generate_star</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">pikes</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** ************************************************************************* **/</span>
+
+
+
+<span class="cm">/** Wheels:</span>
+<span class="cm"> *********/</span>
+
+<span class="cm">/** Generate an pointed wheel accoridng the given settings.</span>
+<span class="cm">  * With polygon as base polygon, having for center center, from radius radius, incline according orientation.</span>
+<span class="cm">  ************************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_wheel</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">polygon</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generate an circular saw like wheel.</span>
+<span class="cm">  * With polygon as base polygon, having for center center, as points size offset even reversed.</span>
+<span class="cm">  **********************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_circular_saw_wheel</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">polygon</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">reverse</span><span class="p">);</span>
+
+<span class="cm">/** Generate an wheel (rounded polygon) with peaking as triangles which peaks ate very little arcs.</span>
+<span class="cm">  * With polygon as base polygon, having for center center, from peak size peak_offset, incline according orientation.</span>
+<span class="cm">  ********************************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_wheel_peaks_trigon</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">peak_offset</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Generate an wheel (rounded polygon) with peaks looking like a tube but they are only right-angled line to the sides connected trough an arc.</span>
+<span class="cm">  * With polygon as base polygon, having for center center, from peak size peak_length, incline according orientation.</span>
+<span class="cm">  **********************************************************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_wheel_peaks_rounded_square</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sides</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">peak_length</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** **************************************************************************************************************************** **/</span>
+
+
+<span class="cm">/** Spiral:</span>
+<span class="cm">  ********/</span>
+
+<span class="cm">/** Generate a spiral.</span>
+<span class="cm">  * making turns revolutions, having for center center, base rounded, with offset betwen the turns offset_exponent.</span>
+<span class="cm">  *****************************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Spiral</span> <span class="o">*</span><span class="nf">generate_simple_spiral</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">turns</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">base</span><span class="p">,</span> <span class="kt">float</span> <span class="n">offset_exponent</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">,</span> <span class="kt">_Bool</span> <span class="n">reverse</span><span class="p">);</span>
+
+<span class="cm">/** **************************************************************************************************************************** **/</span>
+
+<span class="cm">/** fractal:</span>
+<span class="cm">  *********/</span>
+
+<span class="cm">/** Generate a star-like fractal.</span>
+<span class="cm">  * With polygon as base polygon, having for center center, from radius radius, incline according orientation, open change the issue form.</span>
+<span class="cm">  ****************************************************************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Polygon</span> <span class="o">*</span><span class="nf">generate_fractal</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">polygon</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">open</span><span class="p">);</span>
+
+<span class="cm">/** ************************************************************************************************ **/</span>
+
+
+
+<span class="cm">/** @Pixels operations:</span>
+<span class="cm">  ********************/</span>
+
+<span class="cm">/** Return a rotate a pixel around a center from the value angle in clock sens.</span>
+<span class="cm">  *****************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pixel</span> <span class="nf">rotate</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">angle</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">pixel</span><span class="p">);</span>
+
+<span class="cm">/** Mirror a pixel on an axes.</span>
+<span class="cm">  * pixel    = the pixel to mirror.</span>
+<span class="cm">  * center   = the center for mirroring.</span>
+<span class="cm">  * axes     = the mirror axes [&#39;X&#39;|&#39;Y&#39;].</span>
+<span class="cm">  *****************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pixel</span> <span class="nf">mirror</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">char</span> <span class="n">axes</span><span class="p">);</span>
+
+<span class="cm">/** Return the new position from pixel scaled by factor:</span>
+<span class="cm">  * factor &lt; 1 == scaling littler.</span>
+<span class="cm">  * factor &gt; 1 == scaling greater.</span>
+<span class="cm">  ******************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pixel</span> <span class="nf">scale</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">float</span> <span class="n">factor</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">pixel</span><span class="p">);</span>
+
+<span class="cm">/** Return a translated pixel from value x and y.</span>
+<span class="cm">  ***********************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pixel</span> <span class="nf">translate</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">pixel</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">);</span>
+
+<span class="cm">/** *********************************************** **/</span>
+
+
+
+<span class="cm">/** @Forms operations:</span>
+<span class="cm">  *******************/</span>
+
+<span class="cm">/** Rotate a form from angles degrees.</span>
+<span class="cm">  ************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">rotate_form</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">,</span> <span class="kt">float</span> <span class="n">angle</span><span class="p">);</span>
+
+<span class="cm">/** Mirror a Form through the axes axes [&#39;X&#39;|&#39;Y&#39;].</span>
+<span class="cm">  ************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">mirror_form</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">char</span> <span class="n">axes</span><span class="p">);</span>
+
+<span class="cm">/** Scale a Form from factor factor.</span>
+<span class="cm">  * if factor &gt; 1.0 the size of the form increase.</span>
+<span class="cm">  * if factor &lt; 1.0 the size from the form decrease.</span>
+<span class="cm">  **************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">scale_form</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">,</span> <span class="kt">float</span> <span class="n">factor</span><span class="p">);</span>
+
+<span class="cm">/** Translate a Form from (x, y) pixels .</span>
+<span class="cm">  ***************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">translate_form</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">);</span>
+
+<span class="cm">/** Remove doubles coordinates from Form from.</span>
+<span class="cm">  ********************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Form</span> <span class="o">*</span><span class="nf">remove_doubles_form</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** ************************************************ **/</span>
+
+
+
+<span class="cm">/** Setters:</span>
+<span class="cm">  **********/</span>
+
+<span class="cm">/** Set a new center to from Form form and</span>
+<span class="cm">  * even translate all the form according to the new center.</span>
+<span class="cm">  **********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">set_form_center</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">center</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">translate</span><span class="p">);</span>
+
+<span class="cm">/** Set a new radius to from Form form and</span>
+<span class="cm">  * scale the form according to the new radius.</span>
+<span class="cm">  *********************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">set_form_radius</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">,</span> <span class="kt">float</span> <span class="n">radius</span><span class="p">);</span>
+
+<span class="cm">/** Set the colors of the Form form.</span>
+<span class="cm">  **********************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">set_form_color</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">red</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">green</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">blue</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">alpha</span><span class="p">);</span>
+
+<span class="cm">/** Set the colors of the Line line.</span>
+<span class="cm">  **********************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">set_line_color</span><span class="p">(</span><span class="n">Line</span> <span class="o">*</span> <span class="n">line</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">red</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">green</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">blue</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">alpha</span><span class="p">);</span>
+
+<span class="cm">/** *********************************************************************************** **/</span>
+
+
+
+<span class="cm">/** Getters:</span>
+<span class="cm">  *********/</span>
+
+<span class="cm">/** Return the current center from the Form form.</span>
+<span class="cm">  ***********************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Pixel</span> <span class="nf">get_form_center</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** Return the current color from the Form form.</span>
+<span class="cm">  ***********************************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Color</span> <span class="nf">get_form_color</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** Return the current length from the Form form.</span>
+<span class="cm">  * The length member is often the radius @see documentation.</span>
+<span class="cm">  ***********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">float</span> <span class="nf">get_form_length</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** Return the current real length from the Form form.</span>
+<span class="cm">  * The real length member is the distance between the center and the farest point from it.</span>
+<span class="cm">  *****************************************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">float</span> <span class="nf">get_form_real_length</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** Return the current orientation from the Form form.</span>
+<span class="cm">  ****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">float</span> <span class="nf">get_form_orientation</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** ********************************* **/</span>
+
+
+
+<span class="cm">/** Geometry utils:</span>
+<span class="cm">  ****************/</span>
+
+<span class="cm">/** Return the angle for the given arguments.</span>
+<span class="cm">  *******************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">float</span> <span class="nf">get_angle</span><span class="p">(</span><span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="kt">float</span> <span class="n">scale</span><span class="p">,</span> <span class="kt">float</span> <span class="n">orientation</span><span class="p">);</span>
+
+<span class="cm">/** Return the distance between px1(x,y) and px2(x,y).</span>
+<span class="cm">  ****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">float</span> <span class="nf">get_distance_pixels</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">px1</span><span class="p">,</span> <span class="n">Pixel</span> <span class="n">px2</span><span class="p">);</span>
+
+<span class="cm">/** ******************************************************** **/</span>
+
+
+
+<span class="cm">/** Displaying forms:</span>
+<span class="cm"> *******************/</span>
+
+<span class="cm">/** @Forms normal displaying:</span>
+<span class="cm">  **************************/</span>
+
+<span class="cm">/** Display the Line line according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_line</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Line</span> <span class="o">*</span> <span class="n">line</span><span class="p">);</span>
+
+<span class="cm">/** Display the Arc arc according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_arc</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Arc</span> <span class="o">*</span> <span class="n">arc</span><span class="p">);</span>
+
+<span class="cm">/** Display the Form polygon according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_polygon</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Form</span> <span class="o">*</span> <span class="n">polygon</span><span class="p">);</span>
+
+<span class="cm">/** Display the Form polygon strikethrough according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ******************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_strikethrough_polygon</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Form</span> <span class="o">*</span> <span class="n">polygon</span><span class="p">);</span>
+
+<span class="cm">/** Display the Form polygon filled according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ***********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_filled_polygon</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Form</span> <span class="o">*</span> <span class="n">polygon</span><span class="p">);</span>
+
+
+<span class="cm">/** Display the Pentagram pentagram according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ***********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_pentagram</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Pentagram</span> <span class="o">*</span> <span class="n">pentagram</span><span class="p">);</span>
+
+<span class="cm">/** Display the Hexagram Hexagram according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_hexagram</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Hexagram</span> <span class="o">*</span> <span class="n">hexagram</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star flower-like according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  **************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_flower_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star strikethrough according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ***************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_strikethrough_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star_striketrough</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star polygon according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_polygon_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star filled according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_filled_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Spiral spiral according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_spiral</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Spiral</span> <span class="o">*</span> <span class="n">spiral</span><span class="p">);</span>
+
+<span class="cm">/** *************************************************************************** **/</span>
+
+
+
+<span class="cm">/** @Forms thickness displaying:</span>
+<span class="cm">  ******************************/</span>
+
+<span class="cm">/** Display the Line line according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_line_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Line</span> <span class="o">*</span> <span class="n">line</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Arc arc according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_arc_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Arc</span> <span class="o">*</span> <span class="n">arc</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Form polygon according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_polygon_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Form</span> <span class="o">*</span> <span class="n">polygon</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Form polygon strikethrough according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ******************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_strikethrough_polygon_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Form</span> <span class="o">*</span> <span class="n">polygon</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Pentagram pentagram according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ***********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_pentagram_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Pentagram</span> <span class="o">*</span> <span class="n">pentagram</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Hexagram Hexagram according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_hexagram_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Hexagram</span> <span class="o">*</span> <span class="n">hexagram</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_star_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star flower-like according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  **************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_flower_star_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star strikethrough according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ***************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_strikethrough_star_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star_striketrough</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star polygon according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_polygon_star_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** Display the Spiral spiral according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">display_spiral_thick</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Spiral</span> <span class="o">*</span> <span class="n">spiral</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">thickness</span><span class="p">);</span>
+
+<span class="cm">/** **************************************************************************************************** **/</span>
+
+
+
+<span class="cm">/** @Forms anti-aliasing displaying:</span>
+<span class="cm">  *********************************/</span>
+
+<span class="cm">/** Display the Line line according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_line</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Line</span> <span class="o">*</span> <span class="n">line</span><span class="p">);</span>
+
+<span class="cm">/** Display the Arc arc according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_arc</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Arc</span> <span class="o">*</span> <span class="n">arc</span><span class="p">);</span>
+
+<span class="cm">/** Display the Form polygon according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_polygon</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Form</span> <span class="o">*</span> <span class="n">polygon</span><span class="p">);</span>
+
+<span class="cm">/** Display the Form polygon strikethrough according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ******************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_strikethrough_polygon</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Form</span> <span class="o">*</span> <span class="n">polygon</span><span class="p">);</span>
+
+<span class="cm">/** Display the Pentagram pentagram according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ***********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_pentagram</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Pentagram</span> <span class="o">*</span> <span class="n">pentagram</span><span class="p">);</span>
+
+<span class="cm">/** Display the Hexagram Hexagram according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_hexagram</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Pentagram</span> <span class="o">*</span> <span class="n">hexagram</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star flower-like according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  **************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_flower_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star strikethrough according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  ***************************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_strikethrough_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Star star polygon according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *********************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_polygon_star</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Star</span> <span class="o">*</span> <span class="n">star</span><span class="p">);</span>
+
+<span class="cm">/** Display the Spiral spiral according to his settings</span>
+<span class="cm">  * @return 0 on success, -1 on failure.</span>
+<span class="cm">  *****************************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">int</span> <span class="nf">aa_display_spiral</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">,</span> <span class="n">Spiral</span> <span class="o">*</span> <span class="n">spiral</span><span class="p">);</span>
+
+<span class="cm">/** *********************************************************************** **/</span>
+
+
+
+<span class="cm">/** Memory:</span>
+<span class="cm">  ********/</span>
+
+<span class="cm">/** Free the given Form form</span>
+<span class="cm">  * 1. the coordinates arrays.</span>
+<span class="cm">  * 2. the form.</span>
+<span class="cm">  * And set the pointer on NULL</span>
+<span class="cm">  *****************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">free_form</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** Allocate space for a new Form:</span>
+<span class="cm">  *******************************/</span>
+<span class="n">EXTERN_C</span> <span class="n">Form</span> <span class="o">*</span><span class="nf">new_form</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">count</span><span class="p">);</span>
+
+<span class="cm">/** ************************* **/</span>
+
+
+
+<span class="cm">/** Utils:</span>
+<span class="cm">  *******/</span>
+
+<span class="cm">/** Check if the SDL2_Renderer is valid.</span>
+<span class="cm">  **************************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">check_renderer</span><span class="p">(</span><span class="n">SDL_Renderer</span> <span class="o">*</span> <span class="n">pRenderer</span><span class="p">);</span>
+
+<span class="cm">/** Check if form != NULL</span>
+<span class="cm">  ***********************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">check_form</span><span class="p">(</span><span class="n">Form</span> <span class="o">*</span> <span class="n">form</span><span class="p">);</span>
+
+<span class="cm">/** *************************************** **/</span>
+
+
+<span class="cm">/** Miscealeanous:</span>
+<span class="cm">  ***************/</span>
+
+<span class="cm">/** Generate an animation guideline.</span>
+<span class="cm">  * By filling an Pixel array.</span>
+<span class="cm">  **********************************/</span>
+<span class="n">EXTERN_C</span> <span class="kt">void</span> <span class="nf">compute_trajectory</span><span class="p">(</span><span class="n">Pixel</span> <span class="n">positions</span><span class="p">[],</span> <span class="n">Line</span> <span class="o">*</span> <span class="n">trajectory</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">steps</span><span class="p">);</span>
+
+<span class="cp">#endif  </span><span class="cm">/** SDL2_gfxutils inclusion guard **/</span><span class="cp"></span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Images_gallery.html"
+                        title="previous chapter">SDL2_gfxutils Images gallery</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Header_file.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Images_gallery.html" title="SDL2_gfxutils Images gallery"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

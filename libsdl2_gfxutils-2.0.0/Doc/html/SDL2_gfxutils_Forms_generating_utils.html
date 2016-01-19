@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Forms generating functions &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="next" title="Displaying forms" href="SDL2_gfxutils_Displaying_utils.html" />
+    <link rel="prev" title="Base functions" href="SDL2_gfxutils_Base_functions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Displaying_utils.html" title="Displaying forms"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Base_functions.html" title="Base functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="forms-generating-functions">
+<span id="id1"></span><h1>Forms generating functions<a class="headerlink" href="#forms-generating-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="polygons">
+<h2>Polygons<a class="headerlink" href="#polygons" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_polygon_radius">
+Polygon *<tt class="descname">generate_polygon_radius</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_polygon_radius" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of sides of the polygon to generate.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the polygon to generate.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wants center of the polygon.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the polygon.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>A regular convex polygon .</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This result in a regular polygon with <tt class="xref c c-data docutils literal"><span class="pre">sides</span></tt> sides with radius length <tt class="xref c c-data docutils literal"><span class="pre">radius</span></tt> starting at <tt class="xref c c-data docutils literal"><span class="pre">orientation</span></tt>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#polygon-images"><em>A blue 12 sides polygon convex</em></a>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">An polygon is convex if all vertex from the polygon are on the same side from every edge of the polygon.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_corners_rounded_polygon">
+Polygon *<tt class="descname">generate_corners_rounded_polygon</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_corners_rounded_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of sides of the polygon to generate.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the polygon to generate.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wanted center of the polygon.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the polygon.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A polygon which corners are arcs which size is in relationship to the number of sides of the polygon.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#rounded-corners-polygon-images"><em>A blue 12 sides rounded corners polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">The radius goes from the center to the center of the circle arcs: the rounded corners.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_sides_rounded_polygon">
+Polygon *<tt class="descname">generate_sides_rounded_polygon</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_sides_rounded_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of sides of the polygon to generate.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the polygon to generate.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wanted center of the polygon.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the polygon.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A polygon which sides are rounded according the number of sides of the polygon.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#sides-rounded-polygon-images"><em>A blue 12 sides rounded corners polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius goes from the center to the center of the circle arcs.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The parameter sides must be conform to:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">sides</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p class="last">I can only generate odd sides numbered sides rounded polygons.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_rounded_inside_out_polygon">
+Polygon *<tt class="descname">generate_rounded_inside_out_polygon</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_rounded_inside_out_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of arcs of the polygon to generate.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the polygon to generate.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wanted center of the polygon.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the polygon.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A polygon alternating inside nad outside arcs the number of sides of the polygon.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#rounded-inside-out-polygon-images"><em>A blue 12 sides rounded inside out polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius goes from the center to the center of the circle arcs.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The sides number is multiply per 2 to obtains an even numbered polygon.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_alternate_inside_half_circle_polygon">
+Polygon *<tt class="descname">generate_alternate_inside_half_circle_polygon</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_alternate_inside_half_circle_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of sides of the polygon to generate.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the polygon to generate.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wanted center of the polygon.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the polygon.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A rounded polygon alternating arcs rounded to the outside and to the inside of the polygon.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#alternate-inside-half-circle-polygon-images"><em>A blue 12 sides alternate inside half circle polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius goes from the center to the center of the circle arcs.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The result is an even polygon of the double of the sides values.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_alternate_outside_half_circle_polygon">
+Polygon *<tt class="descname">generate_alternate_outside_half_circle_polygon</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em>, bool<em>&nbsp;side_arcs</em><big>)</big><a class="headerlink" href="#c.generate_alternate_outside_half_circle_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of sides of the polygon to generate.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the polygon to generate.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wanted center of the polygon.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the polygon.</li>
+<li><strong>sides_arcs</strong> (<tt class="xref c c-type docutils literal"><span class="pre">bool</span></tt>) &#8211; Boolean value determine if the sides which are not half-cirlce arcs should be rounded.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A polygon with half-circle rounded to the inside from the half sum from the sides of the polygon and the other is even an arc or an straight line according to the <tt class="xref c c-data docutils literal"><span class="pre">side_arcs</span></tt> boolean value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#alternate-outside-half-circle-polygon-images"><em>A blue 12 sides alternate outside half circle polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius goes from the center to the center of the circle arcs.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The result is an even polygon of the double of the sides values.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="stars">
+<h2>Stars<a class="headerlink" href="#stars" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_star">
+Star *<tt class="descname">generate_star</tt><big>(</big>uint32_t<em>&nbsp;pikes</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pikes</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of pikes of the star.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the star base polygon not the spike.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wants center from the star.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the star.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#star-type"><em>Star *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A star with the number of wants pikes according to the given settings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate a star based on a regular polygon.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#star-images"><em>A blue 24 peaks star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">The radius value is the radius of the base polygon.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_pentagram_star">
+Star *<tt class="descname">generate_pentagram_star</tt><big>(</big>float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_pentagram_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An base value for the generation of the 5 pikes star.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wants center from the 5 pikes star.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the star.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#star-type"><em>Star *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A not a regular 5 pikes star but a pentagram star or pentacle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate a simply 5 extremity star with the particularity that the resulting star is not a regular star but a pentagram star.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#pentagram-star-images"><em>A blue pentagram star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">The radius value is the radius of the base polygon.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_hexagram_star">
+Star *<tt class="descname">generate_hexagram_star</tt><big>(</big>float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_hexagram_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An base value for the generation of the 6 pikes star.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wants center from the 6 pikes star.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the star.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#star-type"><em>Star *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A not a regular 6 pikes star but a hexagram star or star of David.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate a simply 6 extremity star, with the particularity that the resulting star is not a regular star but an hexagram star or star of David.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#hexagram-star-images"><em>A blue hexagram star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">The radius value is the radius of the base polygon.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="pentagram">
+<h2>pentagram<a class="headerlink" href="#pentagram" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_pentagram">
+Pentagram *<tt class="descname">generate_pentagram</tt><big>(</big>float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_pentagram" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An base value for the generation of the 5 pikes star.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wants center from the 5 pikes star.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the star.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pentagram-type"><em>Pentagram *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A pentagram or named pentacle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate an 5 extremity star with an centered pentagon from which every vertex go to the center.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#pentagram-images"><em>A blue pentagram</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">The radius value is the radius of the base polygon.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="hexagram">
+<h2>hexagram<a class="headerlink" href="#hexagram" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_hexagram">
+Hexagram *<tt class="descname">generate_hexagram</tt><big>(</big>float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_hexagram" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An base value for the generation of the 6 pikes star.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wants center from the 6 pikes star.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the star.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#hexagram-type"><em>Hexagram *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A hexagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate a 6 extremity star with an centered hexagon from which every vertex go to the center.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#hexagram-images"><em>A blue hexagram</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">The radius value is the radius of the base polygon.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="fractal">
+<h2>Fractal<a class="headerlink" href="#fractal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_fractal">
+Polygon *<tt class="descname">generate_fractal</tt><big>(</big>uint32_t<em>&nbsp;polygon</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;orientation</em>, bool<em>&nbsp;open</em><big>)</big><a class="headerlink" href="#c.generate_fractal" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; Base polygon from the fractal.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius from the base polygon.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The wants center from the fractal.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the fractal.</li>
+<li><strong>open</strong> (<tt class="xref c c-type docutils literal"><span class="pre">bool</span></tt>) &#8211; Change the fractal pikes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A strange fractal form coming from an crazy brain. :)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">The radius goes from the center to the farest point of the fratcal (so equal to the <tt class="xref c c-data docutils literal"><span class="pre">real_length</span></tt> value) .</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="spiral">
+<h2>Spiral<a class="headerlink" href="#spiral" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_simple_spiral">
+Spiral *<tt class="descname">generate_simple_spiral</tt><big>(</big>Pixel<em>&nbsp;center</em>, uint32_t<em>&nbsp;turns</em>, uint32_t<em>&nbsp;base</em>, float<em>&nbsp;offset_exponent</em>, float<em>&nbsp;orientation</em>, bool<em>&nbsp;reverse</em><big>)</big><a class="headerlink" href="#c.generate_simple_spiral" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The center from the spiral.</li>
+<li><strong>turns</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; The number of revolution of the spiral.</li>
+<li><strong>base</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; the base number of points to make one turn (roundness).</li>
+<li><strong>offset_exponent</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The factor to compute the distance between 2 points a turn offset.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the spiral.</li>
+<li><strong>reverse</strong> (<tt class="xref c c-type docutils literal"><span class="pre">bool</span></tt>) &#8211; Reverse the spiral.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#spiral-type"><em>Spiral *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A spiral according to the given settings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#spiral-images"><em>A blue rounded 3 turns spiral</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius goes from the center to the end of the first entire revolution of the spiral.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The <tt class="xref c c-data docutils literal"><span class="pre">base</span></tt> and the <tt class="xref c c-data docutils literal"><span class="pre">offset_exponent</span></tt> parameters values will influente of the size of the spiral.</p>
+<p>You cannot set an radius but the generating function does it.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">The value from the <tt class="xref c c-data docutils literal"><span class="pre">base</span></tt> parameter will be divided per two in the resulting spiral.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The <tt class="xref c c-data docutils literal"><span class="pre">turns</span></tt> parameter value will be multiply per 2 to obtains the number of revolutions of the spiral.</p>
+<p>The <tt class="xref c c-data docutils literal"><span class="pre">base</span></tt> parameter will be divided per two in the resulting spiral.</p>
+<p class="last">I can only generate even spirals.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="wheels">
+<h2>Wheels<a class="headerlink" href="#wheels" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.generate_wheel">
+Polygon *<tt class="descname">generate_wheel</tt><big>(</big>uint32_t<em>&nbsp;polygon</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;offset</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; Number of sides of the wheel (base polygon).</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius of the wheel.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The center from the wheel.</li>
+<li><strong>offset</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; Size of the peaks of the wheel.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A pointed wheel according to the given settings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">The peaks of the wheel are trigons like a star.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#wheel-images"><em>A blue 24 peaks wheel</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius value is the radius of the base polygon.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You must set an offset value other than 0 because it represent the size of the peaks of the wheel.</p>
+<p class="last">The difference betwenn this wheel and a normal star is that is regular.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">the radius Polygon member from this wheel is the radius of the base polygon from this wheel (interior).</td>
+</tr>
+</tbody>
+</table>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The parameter polygon have a value conform to:</p>
+<blockquote class="last">
+<div><div class="highlight-python"><div class="highlight"><pre><span class="mi">360</span> <span class="o">%</span> <span class="n">polygon</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_circular_saw_wheel">
+Polygon *<tt class="descname">generate_circular_saw_wheel</tt><big>(</big>uint32_t<em>&nbsp;polygon</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;offset</em>, float<em>&nbsp;orientation</em>, bool<em>&nbsp;reverse</em><big>)</big><a class="headerlink" href="#c.generate_circular_saw_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; Number of sides of the circular saw (base polygon).</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; The radius from the points of the circular saw like wheel.</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; The center from the circular saw like wheel.</li>
+<li><strong>offset</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; Size of the points.</li>
+<li><strong>reverse</strong> (<tt class="xref c c-type docutils literal"><span class="pre">bool</span></tt>) &#8211; Reverse the shift from the circular saw like wheel.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A circular saw like pointed wheel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate an circular saw like wheel. This is only an polygon with an rectangle triangle on the top of the edges.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#circular-saw-images"><em>A blue 24 peaks circular saw</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius goes from the center to the end of the pikes (it&#8217;s equal to the <tt class="xref c c-data docutils literal"><span class="pre">real_length</span></tt> value).</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The parameter polygon have a value conform to:</p>
+<blockquote class="last">
+<div><div class="highlight-python"><div class="highlight"><pre><span class="mi">360</span> <span class="o">%</span> <span class="n">polygon</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_wheel_peaks_trigon">
+Polygon *<tt class="descname">generate_wheel_peaks_trigon</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;peak_offset</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_wheel_peaks_trigon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; Number of sides of the base polygon.</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An base value for generating the wheel (rounded polygon).</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; Center from the wheel (rounded polygon).</li>
+<li><strong>peak_offset</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; Peak offset.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the wheel (rounded polygon).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A pointed wheel (rounded polygon) with peaks implemented as trigon which ends are mini arcs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate an wheel (rounded polygon) with peaking as trigons.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#trigon-peaks-wheel-images"><em>A blue 24 trigon peaks wheel</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius value is the radius of the base polygon.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The parameter polygon have a value conform to:</p>
+<blockquote class="last">
+<div><div class="highlight-python"><div class="highlight"><pre><span class="mi">360</span> <span class="o">%</span> <span class="n">polygon</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.generate_wheel_peaks_rounded_square">
+Polygon *<tt class="descname">generate_wheel_peaks_rounded_square</tt><big>(</big>uint32_t<em>&nbsp;sides</em>, float<em>&nbsp;radius</em>, Pixel<em>&nbsp;center</em>, float<em>&nbsp;peak_length</em>, float<em>&nbsp;orientation</em><big>)</big><a class="headerlink" href="#c.generate_wheel_peaks_rounded_square" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sides</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; Number of sides from the wheel (rounded polygon).</li>
+<li><strong>radius</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; Radius from the wheel (rounded polygon).</li>
+<li><strong>center</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>) &#8211; Center from the wheel (rounded polygon).</li>
+<li><strong>peak_length</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; Size of the peaks.</li>
+<li><strong>orientation</strong> (<tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>) &#8211; An offset in degrees to add to influence the incline of the wheel (rounded polygon).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#polygon-type"><em>Polygon *</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>A pointed wheel with peaks looking like a tube.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">This function generate an pointed wheel (rounded polygon) with peaks looking like a tube but they are only right-angled line to the sides and connected trough an arc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#rounded-square-peaks-images"><em>A blue 24 rounded square peaks wheel</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first">The radius value is the radius of the base polygon.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The parameter sides have a value conform to:</p>
+<blockquote class="last">
+<div><div class="highlight-python"><div class="highlight"><pre><span class="mi">360</span> <span class="o">%</span> <span class="n">sides</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">sides</span> <span class="o">&lt;=</span> <span class="mi">24</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Forms generating functions</a><ul>
+<li><a class="reference internal" href="#polygons">Polygons</a></li>
+<li><a class="reference internal" href="#stars">Stars</a></li>
+<li><a class="reference internal" href="#pentagram">pentagram</a></li>
+<li><a class="reference internal" href="#hexagram">hexagram</a></li>
+<li><a class="reference internal" href="#fractal">Fractal</a></li>
+<li><a class="reference internal" href="#spiral">Spiral</a></li>
+<li><a class="reference internal" href="#wheels">Wheels</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Base_functions.html"
+                        title="previous chapter">Base functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Displaying_utils.html"
+                        title="next chapter">Displaying forms</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Forms_generating_utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Displaying_utils.html" title="Displaying forms"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Base_functions.html" title="Base functions"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

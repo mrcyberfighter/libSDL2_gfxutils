@@ -1,0 +1,86 @@
+===============================================================
+SDL2_gfxutils an SDL2_gfx library helper functions set library.
+===============================================================
+
+The file to include is named: SDL2_gfxutils.h
+
+For linking the library which dependending from the libm, the SDL2 library
+and the SDL2_gfxutils library:
+
+  $ cc program.c -lm -lSDL2 -lSDL2_gfx -lSDL2_gfxutils
+ 
+  Or
+ 
+  $ c++ program.c -lm -lSDL2 -lSDL2_gfx -lSDL2_gfxutils
+ 
+  Because version 2.0.0 from SDL2_gfxutils is C++ compatible.
+   
+Think to read the html documentation provide with this package.
+
+Copyright (C) GPLv3 2015 Bruggemann Eddie <mrcyberfighter@gmail.com>.
+
+SDL2_gfxutils is under Copyright from GPLv3 license.
+
+============
+Installation
+============
+
+The installation process is automatize with the autotools.
+
+  You simply have to execute 3 commands in the top folder.
+ 
+  $ ./configure.  # Which will perform testing your system and requirement.
+ 
+  $ make          # Which will build the binaries.
+ 
+  $ sudo make install  # Which will install the library,
+                       # the html documentation and the examples
+                       # programs on your system.
+ 
+  NOTE: the prefix is set to prefix=/usr so it work on my system.  
+
+
+===========================
+SDL2_gfxutils brief history
+===========================
+
+SDL2_gfxutils is issue from an collection of functions that i have implemented over the years,
+everytime i had a idea of a form to generate i try to implemented it as a function generating
+the sequence of coordinates or performing operations on a form.
+
+At start i implemented my ideas with the python pygame module, which is based on the SDL library,
+by start i get only the functions to set a pixel according the a radius and an angle offset,
+so SDL2_gfxutils is a translation of python functions into the C language.
+
+
+SDL2_gfxutils has been entirely rewritten after the first version release which suffers under severals
+bugs and was not handy to use, mostly for animations.
+
+:note: After the disaster everything are right.
+
+=========================================
+The new implementation from SDL2_gfxutils
+=========================================
+
+All forms generating functions now return a pointer on a specific
+SDL2_gfxutils type compatible with the generic SDL2_gfxutils Form type.
+
+The pointers permit to manipulate the forms for transforming or
+animating (rotating, scaling, translating, mirroring) functions easily.
+
+The pointers can be destroyed at your convienence of course.
+And this mechanic is massively used in form generating functions.
+So that no memory space is lost.
+
+The generic Form type has been change to contains coordinates from type float,
+instead of type int16_t,
+so that the computation like rotating, scaling, translating, mirroring are now exactly executed.
+
+
+The subtype Pixel members are now from type float.
+
++ Some functions have been removed because they become useless, because of the new pointers system.
+
++ Some functions have been added for replacing the missing features, with many advantages, mostly for transforming or animating forms in the SDL2 mainloop.
+
++ All functions have been improved, favor of the pointers mechanic.

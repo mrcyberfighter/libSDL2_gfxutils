@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SDL2_gfxutils defined types &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="next" title="Base functions" href="SDL2_gfxutils_Base_functions.html" />
+    <link rel="prev" title="SDL2_gfxutils presentation" href="SDL2_gfxutils_Presentation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Base_functions.html" title="Base functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Presentation.html" title="SDL2_gfxutils presentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sdl2-gfxutils-defined-types">
+<h1>SDL2_gfxutils defined types<a class="headerlink" href="#sdl2-gfxutils-defined-types" title="Permalink to this headline">¶</a></h1>
+<p id="sdl2-gfxutils-types">Following types are define by <strong>SDL2_gfxutils</strong>:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Color_</span> <span class="p">{</span>
+  <span class="kt">uint8_t</span> <span class="n">r</span> <span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">g</span> <span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">b</span> <span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">a</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Color</span> <span class="p">;</span>
+
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Pixel_</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span> <span class="p">;</span>
+  <span class="kt">float</span> <span class="n">y</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Pixel</span> <span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Segment_</span> <span class="p">{</span>
+  <span class="n">Pixel</span> <span class="n">xy1</span>   <span class="p">;</span>
+  <span class="n">Pixel</span> <span class="n">xy2</span>   <span class="p">;</span>
+  <span class="n">Color</span> <span class="n">color</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Line</span> <span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Coords_</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="o">*</span><span class="n">x</span> <span class="p">;</span>
+  <span class="kt">float</span> <span class="o">*</span><span class="n">y</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Coords</span> <span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Polygon_</span> <span class="p">{</span>
+  <span class="n">Coords</span>         <span class="n">coords</span>      <span class="p">;</span>
+  <span class="n">Pixel</span>          <span class="n">center</span>      <span class="p">;</span>
+  <span class="n">Color</span>          <span class="n">color</span>       <span class="p">;</span>
+  <span class="kt">uint16_t</span>       <span class="n">count</span>       <span class="p">;</span>
+  <span class="kt">float</span>          <span class="n">length</span>      <span class="p">;</span>
+  <span class="kt">float</span>          <span class="n">real_length</span> <span class="p">;</span>
+  <span class="kt">float</span>          <span class="n">orientation</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Polygon</span> <span class="p">;</span>
+
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Arc</span>          <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Hexagram</span>     <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Pentagram</span>    <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Star</span>         <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Spiral</span>       <span class="p">;</span>
+
+
+<span class="k">typedef</span> <span class="n">Polygon</span>         <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Arc</span>             <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Hexagram</span>        <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Pentagram</span>       <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Spiral</span>          <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Star</span>            <span class="n">Form</span> <span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="the-color-type">
+<span id="color-type"></span><h2>The Color type<a class="headerlink" href="#the-color-type" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Color</span></tt> is used for holding datas about colors channels:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Color_</span> <span class="p">{</span>
+  <span class="kt">uint8_t</span> <span class="n">r</span> <span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">g</span> <span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">b</span> <span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">a</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Color</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-pixel-type">
+<span id="pixel-type"></span><h2>The Pixel type<a class="headerlink" href="#the-pixel-type" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt> type is used for holding the datas about an pixel:</p>
+<blockquote>
+<div>the <tt class="xref c c-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref c c-data docutils literal"><span class="pre">y</span></tt> coordinate values.</div></blockquote>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt> type is used by functions which return a single pixel.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Pixel_</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span> <span class="p">;</span>
+  <span class="kt">float</span> <span class="n">y</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Pixel</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>Like the function <a class="reference internal" href="SDL2_gfxutils_Base_functions.html#get-middle-from-line"><em>get_middle_from_line()</em></a>.</p>
+</div>
+<div class="section" id="the-line-type">
+<span id="line-type"></span><h2>The Line type<a class="headerlink" href="#the-line-type" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Line</span></tt> type is used for holding the datas about a line:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The line start <tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>.</li>
+<li>The line end <tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt>.</li>
+<li>The color of the line as <strong>red</strong>, <strong>green</strong>, <strong>blue</strong> and <strong>alpha</strong> values.</li>
+</ul>
+</div></blockquote>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Line</span></tt> type is used by functions which return a segment.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Segment_</span> <span class="p">{</span>
+  <span class="n">Pixel</span> <span class="n">xy1</span>   <span class="p">;</span>
+  <span class="n">Pixel</span> <span class="n">xy2</span>   <span class="p">;</span>
+  <span class="n">Color</span> <span class="n">color</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Line</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>Like the function <a class="reference internal" href="SDL2_gfxutils_Base_functions.html#generate-segment"><em>generate_segment()</em></a>.</p>
+<p>Or as argument from a function per example to get the middle of a line.</p>
+</div>
+<div class="section" id="the-coords-type">
+<h2>The Coords type<a class="headerlink" href="#the-coords-type" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Coords</span></tt> type in only used internally to be a member of the <tt class="xref c c-type docutils literal"><span class="pre">Polygon</span></tt> type.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Coords_</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="o">*</span><span class="n">x</span> <span class="p">;</span>
+  <span class="kt">float</span> <span class="o">*</span><span class="n">y</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Coords</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Coords</span></tt> is used for performing computation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>By displaying operations the <tt class="xref c c-type docutils literal"><span class="pre">float</span></tt> array members are converted to <tt class="xref c c-type docutils literal"><span class="pre">int16_t</span></tt> (the <strong>SDL2_gfx</strong> coordinates arrays standart type for displaying) in this way:</p>
+<div class="last highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">c</span> <span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">form</span><span class="o">-&gt;</span><span class="n">count</span><span class="o">-</span><span class="mi">2</span> <span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="n">ret</span><span class="o">=</span><span class="n">lineRGBA</span><span class="p">(</span><span class="n">pRenderer</span><span class="p">,</span>
+               <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span> <span class="n">roundf</span><span class="p">(</span><span class="n">form</span><span class="o">-&gt;</span><span class="n">coords</span><span class="p">.</span><span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span>
+               <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span> <span class="n">roundf</span><span class="p">(</span><span class="n">form</span><span class="o">-&gt;</span><span class="n">coords</span><span class="p">.</span><span class="n">y</span><span class="p">[</span><span class="n">c</span><span class="p">]),</span>
+               <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span> <span class="n">roundf</span><span class="p">(</span><span class="n">form</span><span class="o">-&gt;</span><span class="n">coords</span><span class="p">.</span><span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">]),</span>
+               <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span> <span class="n">roundf</span><span class="p">(</span><span class="n">form</span><span class="o">-&gt;</span><span class="n">coords</span><span class="p">.</span><span class="n">y</span><span class="p">[</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">]),</span>
+               <span class="n">form</span><span class="o">-&gt;</span><span class="n">color</span><span class="p">.</span><span class="n">r</span><span class="p">,</span>
+               <span class="n">form</span><span class="o">-&gt;</span><span class="n">color</span><span class="p">.</span><span class="n">g</span><span class="p">,</span>
+               <span class="n">form</span><span class="o">-&gt;</span><span class="n">color</span><span class="p">.</span><span class="n">b</span><span class="p">,</span>
+               <span class="n">form</span><span class="o">-&gt;</span><span class="n">color</span><span class="p">.</span><span class="n">a</span><span class="p">)</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">After using a Form, Wenn you do not need it in the future, you can free the form.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-polygon-type">
+<span id="polygon-type"></span><span id="form-type"></span><h2>The Polygon type<a class="headerlink" href="#the-polygon-type" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref c c-type docutils literal"><span class="pre">Polygon</span></tt> is used for holding all datas about a form.</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <strong>coordinates</strong> for <em>computing</em> the form generation and used by the animation functions: the <tt class="xref c c-type docutils literal"><span class="pre">Coords</span></tt> <tt class="xref c c-type docutils literal"><span class="pre">struct</span></tt>.</li>
+<li>The <strong>center</strong> of the form: the <tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt> <tt class="xref c c-type docutils literal"><span class="pre">struct</span></tt>.</li>
+<li>The <strong>color</strong> of the form: the <tt class="xref c c-data docutils literal"><span class="pre">r</span></tt>, <tt class="xref c c-data docutils literal"><span class="pre">g</span></tt>, <tt class="xref c c-data docutils literal"><span class="pre">b</span></tt>, <tt class="xref c c-data docutils literal"><span class="pre">a</span></tt> members.</li>
+<li>The <strong>count</strong> of coordinates number: the <tt class="xref c c-data docutils literal"><span class="pre">count</span></tt> member.</li>
+<li>The <strong>length</strong> often the <em>radius</em> needed from the animating functions: the <tt class="xref c c-data docutils literal"><span class="pre">length</span></tt> member.</li>
+<li>The <strong>length</strong> between the <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt> and the most distant <strong>coordinate</strong> from the <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt>: the <tt class="xref c c-data docutils literal"><span class="pre">real_length</span></tt> member.</li>
+<li>The <strong>offset</strong> defining the incline of a form: the <tt class="xref c c-data docutils literal"><span class="pre">orientation</span></tt>.</li>
+</ul>
+</div></blockquote>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Polygon_</span> <span class="p">{</span>
+  <span class="n">Coords</span>         <span class="n">coords</span>      <span class="p">;</span>
+  <span class="n">Pixel</span>          <span class="n">center</span>      <span class="p">;</span>
+  <span class="n">Color</span>          <span class="n">color</span>       <span class="p">;</span>
+  <span class="kt">uint16_t</span>       <span class="n">count</span>       <span class="p">;</span>
+  <span class="kt">float</span>          <span class="n">length</span>      <span class="p">;</span>
+  <span class="kt">float</span>          <span class="n">real_length</span> <span class="p">;</span>
+  <span class="kt">float</span>          <span class="n">orientation</span> <span class="p">;</span>
+<span class="p">}</span> <span class="n">Polygon</span> <span class="p">;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">All derived types are define as an <a class="reference internal" href="#form-type"><em>Form</em></a> type so that you don&#8217;t need to cast it if you use a <tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt> generic function.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Dynamically settings.</p>
+<p class="last">All forms generating functions set the <tt class="xref c c-data docutils literal"><span class="pre">count</span></tt>, <tt class="xref c c-data docutils literal"><span class="pre">length</span></tt>, <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt>, <tt class="xref c c-data docutils literal"><span class="pre">orientation</span></tt> and the <tt class="xref c c-data docutils literal"><span class="pre">real_length</span></tt> member from the <tt class="xref c c-type docutils literal"><span class="pre">Polygon</span></tt> type.</p>
+</div>
+</div>
+<div class="section" id="generic-form-type">
+<span id="star-type"></span><span id="arc-type"></span><span id="spiral-type"></span><span id="hexagram-type"></span><span id="pentagram-type"></span><h2>Generic Form type.<a class="headerlink" href="#generic-form-type" title="Permalink to this headline">¶</a></h2>
+<p>There are many forms representing derivated types from the <a class="reference internal" href="#polygon-type"><em>Polygon</em></a> type.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Arc</span>          <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Hexagram</span>     <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Pentagram</span>    <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Star</span>         <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Polygon</span> <span class="n">Spiral</span>       <span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>All derivated types are define as a generic <tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt> type.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="n">Polygon</span>         <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Arc</span>             <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Hexagram</span>        <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Pentagram</span>       <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Spiral</span>          <span class="n">Form</span> <span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Star</span>            <span class="n">Form</span> <span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="notice">
+<span id="sdl2-gfxutils-others"></span><h2>Notice<a class="headerlink" href="#notice" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Compatiblity with others libraries than <strong>SDL2</strong>:</p>
+<p>The only purpose of the <strong>SDL2_gfx</strong> library is the form displaying functionality.</p>
+<p>So I think it&#8217;s possible to adapt easily <strong>SDL2_gfxutils</strong> to be resusable with others libraries.</p>
+<p>You only have to implement the displaying functions adapted to the target library.</p>
+<p>If the coordinates arrays from type <tt class="xref c c-type docutils literal"><span class="pre">float</span></tt> does it for the target library, because</p>
+<p>it&#8217;s easy to <strong>round</strong> and <strong>cast</strong> the <tt class="xref c c-type docutils literal"><span class="pre">float</span></tt> in the target type, like this:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">roundf</span><span class="p">(</span><span class="n">form</span><span class="o">-&gt;</span><span class="n">coords</span><span class="p">.</span><span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">roundf</span><span class="p">(</span><span class="n">form</span><span class="o">-&gt;</span><span class="n">coords</span><span class="p">.</span><span class="n">y</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>Else the <a class="reference internal" href="#color-type"><em>colors</em></a> are coded on <tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt> values.</p>
+<p>And the other members from the <a class="reference internal" href="#form-type"><em>Form</em></a> structure are used for computing.</p>
+<p class="last">Thank&#8217;s to notify me at &lt;<a class="reference external" href="mailto:mrcyberfighter&#37;&#52;&#48;gmail&#46;com">mrcyberfighter<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt; if you want to do so.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SDL2_gfxutils defined types</a><ul>
+<li><a class="reference internal" href="#the-color-type">The Color type</a></li>
+<li><a class="reference internal" href="#the-pixel-type">The Pixel type</a></li>
+<li><a class="reference internal" href="#the-line-type">The Line type</a></li>
+<li><a class="reference internal" href="#the-coords-type">The Coords type</a></li>
+<li><a class="reference internal" href="#the-polygon-type">The Polygon type</a></li>
+<li><a class="reference internal" href="#generic-form-type">Generic Form type.</a></li>
+<li><a class="reference internal" href="#notice">Notice</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Presentation.html"
+                        title="previous chapter">SDL2_gfxutils presentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Base_functions.html"
+                        title="next chapter">Base functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Defined_types.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Base_functions.html" title="Base functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Presentation.html" title="SDL2_gfxutils presentation"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

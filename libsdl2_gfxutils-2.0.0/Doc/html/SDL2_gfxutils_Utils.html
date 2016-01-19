@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Utils &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="next" title="SDL2_gfxutils Images gallery" href="SDL2_gfxutils_Images_gallery.html" />
+    <link rel="prev" title="Miscellaneous" href="SDL2_gfxutils_Miscellaneous_utils.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Images_gallery.html" title="SDL2_gfxutils Images gallery"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Miscellaneous_utils.html" title="Miscellaneous"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="utils">
+<h1>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="check">
+<h2>Check<a class="headerlink" href="#check" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.check_renderer">
+void <tt class="descname">check_renderer</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em><big>)</big><a class="headerlink" href="#c.check_renderer" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> (<em>SDL_Renderer</em>) &#8211; The SDL2 Renderer</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Check the validity of the <tt class="xref c c-type docutils literal"><span class="pre">SDL_Renderer</span></tt>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">pRenderer</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">&quot;SDL Renderer error (%s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">SDL_GetError</span><span class="p">());</span>
+  <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">)</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Function used in all <a class="reference internal" href="SDL2_gfxutils_Displaying_utils.html#displaying-functions"><em>displaying functions</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.check_form">
+void <tt class="descname">check_form</tt><big>(</big>Form<em>&nbsp;*form</em><big>)</big><a class="headerlink" href="#c.check_form" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt>) &#8211; the <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt> to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Check only if the given parameter is equal to <tt class="xref c c-type docutils literal"><span class="pre">NULL</span></tt>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">form</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">&quot;Invalid form argument !</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">)</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Function used in all <a class="reference internal" href="SDL2_gfxutils_Setters_utils.html#form-setter-functions"><em>forms setters functions</em></a> and all <a class="reference internal" href="SDL2_gfxutils_Operations_utils.html#form-operation-functions"><em>forms operations functions</em></a>.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="memory">
+<h2>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.new_form">
+Form *<tt class="descname">new_form</tt><big>(</big>uint32_t<em>&nbsp;count</em><big>)</big><a class="headerlink" href="#c.new_form" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint32_t</span></tt>) &#8211; the number of coordinates pair to allocate.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A new allocated <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function allocate the required space for the given <tt class="xref c c-data docutils literal"><span class="pre">count</span></tt> argument number of coordinates arrays.</p>
+<p>And set the <tt class="xref c c-data docutils literal"><span class="pre">count</span></tt> member from the returned <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Warning:</th><td class="field-body">The other members must you set yourself.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.free_form">
+void <tt class="descname">free_form</tt><big>(</big>Form<em>&nbsp;*form</em><big>)</big><a class="headerlink" href="#c.free_form" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>form</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span></tt>) &#8211; the <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt> to free.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="xref c c-type docutils literal"><span class="pre">void</span></tt></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function free the allocated coordinates arrays from the  <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a>, free the <tt class="xref c c-data docutils literal"><span class="pre">form</span></tt> pointer and set it on <tt class="xref c c-type docutils literal"><span class="pre">NULL</span></tt>.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Utils</a><ul>
+<li><a class="reference internal" href="#check">Check</a></li>
+<li><a class="reference internal" href="#memory">Memory</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Miscellaneous_utils.html"
+                        title="previous chapter">Miscellaneous</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Images_gallery.html"
+                        title="next chapter">SDL2_gfxutils Images gallery</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Images_gallery.html" title="SDL2_gfxutils Images gallery"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Miscellaneous_utils.html" title="Miscellaneous"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Displaying forms &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="next" title="Operations" href="SDL2_gfxutils_Operations_utils.html" />
+    <link rel="prev" title="Forms generating functions" href="SDL2_gfxutils_Forms_generating_utils.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Operations_utils.html" title="Operations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Forms_generating_utils.html" title="Forms generating functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="displaying-forms">
+<span id="displaying-functions"></span><h1>Displaying forms<a class="headerlink" href="#displaying-forms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="display-functions">
+<h2>display functions<a class="headerlink" href="#display-functions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Here are describe the Form display utlities.</div></blockquote>
+<div class="section" id="line">
+<h3>Line<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_line">
+int <tt class="descname">display_line</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Line<em>&nbsp;*line</em><big>)</big><a class="headerlink" href="#c.display_line" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>line</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Line</span> <span class="pre">*</span></tt>) &#8211; The line to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-line-image"><em>display line</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the line in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="arc">
+<h3>Arc<a class="headerlink" href="#arc" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_arc">
+int <tt class="descname">display_arc</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Arc<em>&nbsp;*arc</em><big>)</big><a class="headerlink" href="#c.display_arc" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>arc</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Arc</span> <span class="pre">*</span></tt>) &#8211; The arc to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-arc-image"><em>display arc</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the arc in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="polygon">
+<h3>Polygon<a class="headerlink" href="#polygon" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_polygon">
+int <tt class="descname">display_polygon</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Form<em>&nbsp;*polygon</em><big>)</big><a class="headerlink" href="#c.display_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span> <span class="pre">*</span></tt>) &#8211; The polygon to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-polygon-image"><em>display polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon lined in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_strikethrough_polygon">
+int <tt class="descname">display_strikethrough_polygon</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Form<em>&nbsp;*polygon</em><big>)</big><a class="headerlink" href="#c.display_strikethrough_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span> <span class="pre">*</span></tt>) &#8211; The polygon to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-strikethrough-polygon-image"><em>display strikethrough polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon lined strikethrough in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_filled_polygon">
+<tt class="descname">display_filled_polygon</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Form<em>&nbsp;*polygon</em><big>)</big><a class="headerlink" href="#c.display_filled_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span> <span class="pre">*</span></tt>) &#8211; The polygon to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-filled-polygon-image"><em>display filled polygon</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon filled in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pentagram-hexagram">
+<h3>Pentagram &amp; Hexagram<a class="headerlink" href="#pentagram-hexagram" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_pentagram">
+int <tt class="descname">display_pentagram</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Pentagram<em>&nbsp;*pentagram</em><big>)</big><a class="headerlink" href="#c.display_pentagram" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>pentagram</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pentagram</span> <span class="pre">*</span></tt>) &#8211; The pentagram to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-pentagram-image"><em>display pentagram</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the pentagram in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_hexagram">
+int <tt class="descname">display_hexagram</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Pentagram<em>&nbsp;*hexagram</em><big>)</big><a class="headerlink" href="#c.display_hexagram" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>hexagram</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Hexagram</span> <span class="pre">*</span></tt>) &#8211; The hexagram to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-hexagram-image"><em>display hexagram</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the hexagram in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="star">
+<h3>Star<a class="headerlink" href="#star" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_star">
+int <tt class="descname">display_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.display_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-star-image"><em>display star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_flower_star">
+int <tt class="descname">display_flower_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.display_flower_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-flower-star-image"><em>display flower star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the flower star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_strikethrough_star">
+int <tt class="descname">display_strikethrough_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.display_strikethrough_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-strikethrough-star-image"><em>display strikethrough star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the strikethrough star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_polygon_star">
+int <tt class="descname">display_polygon_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.display_polygon_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-polygon-star-image"><em>display polygon star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_filled_star">
+int <tt class="descname">display_filled_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.display_filled_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-filled-star-image"><em>display filled star</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the strikethrough star in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="spiral">
+<h3>Spiral<a class="headerlink" href="#spiral" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_spiral">
+int <tt class="descname">display_spiral</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Spiral<em>&nbsp;*spiral</em><big>)</big><a class="headerlink" href="#c.display_spiral" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>spiral</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Spiral</span> <span class="pre">*</span></tt>) &#8211; The spiral to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>0 on success, -1 on failure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">see:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Images_gallery.html#display-spiral-image"><em>display spiral</em></a>.</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the spiral in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="anti-aliasing-display-functions">
+<span id="anti-aliasing-functions"></span><h2>Anti-aliasing display functions<a class="headerlink" href="#anti-aliasing-display-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Line<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.aa_display_line">
+int <tt class="descname">aa_display_line</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Line<em>&nbsp;*line</em><big>)</big><a class="headerlink" href="#c.aa_display_line" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>line</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Line</span> <span class="pre">*</span></tt>) &#8211; The line to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the line in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>Arc<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.aa_display_arc">
+int <tt class="descname">aa_display_arc</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Arc<em>&nbsp;*arc</em><big>)</big><a class="headerlink" href="#c.aa_display_arc" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>arc</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Arc</span> <span class="pre">*</span></tt>) &#8211; The arc to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the arc in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>Polygon<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.aa_display_polygon">
+int <tt class="descname">aa_display_polygon</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Form<em>&nbsp;*polygon</em><big>)</big><a class="headerlink" href="#c.aa_display_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span> <span class="pre">*</span></tt>) &#8211; The polygon to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon lined in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.aa_display_strikethrough_polygon">
+int <tt class="descname">aa_display_strikethrough_polygon</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Form<em>&nbsp;*polygon</em><big>)</big><a class="headerlink" href="#c.aa_display_strikethrough_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span> <span class="pre">*</span></tt>) &#8211; The polygon to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon lined strikethrough in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>Pentagram &amp; Hexagram<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.aa_display_pentagram">
+int <tt class="descname">aa_display_pentagram</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Pentagram<em>&nbsp;*pentagram</em><big>)</big><a class="headerlink" href="#c.aa_display_pentagram" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>pentagram</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pentagram</span> <span class="pre">*</span></tt>) &#8211; The pentagram to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the pentagram in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.aa_display_hexagram">
+int <tt class="descname">aa_display_hexagram</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Pentagram<em>&nbsp;*hexagram</em><big>)</big><a class="headerlink" href="#c.aa_display_hexagram" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>hexagram</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Hexagram</span> <span class="pre">*</span></tt>) &#8211; The hexagram to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the hexagram in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>Star<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.aa_display_star">
+int <tt class="descname">aa_display_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.aa_display_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.aa_display_flower_star">
+int <tt class="descname">aa_display_flower_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.aa_display_flower_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the flower star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.aa_display_strikethrough_star">
+int <tt class="descname">aa_display_strikethrough_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.aa_display_strikethrough_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the strikethrough star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.aa_display_polygon_star">
+int <tt class="descname">aa_display_polygon_star</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em><big>)</big><a class="headerlink" href="#c.aa_display_polygon_star" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon star in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h3>Spiral<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.aa_display_spiral">
+int <tt class="descname">aa_display_spiral</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Spiral<em>&nbsp;*spiral</em><big>)</big><a class="headerlink" href="#c.aa_display_spiral" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>spiral</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Spiral</span> <span class="pre">*</span></tt>) &#8211; The spiral to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the spiral in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="thickness-settable-display-functions">
+<span id="thickness-settable-functions"></span><h2>Thickness settable display functions<a class="headerlink" href="#thickness-settable-display-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Line<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_line_thick">
+int <tt class="descname">display_line_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Line<em>&nbsp;*line</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_line_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>line</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Line</span> <span class="pre">*</span></tt>) &#8211; The line to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the line in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id8">
+<h3>Arc<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_arc_thick">
+int <tt class="descname">display_arc_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Arc<em>&nbsp;*arc</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_arc_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>arc</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Arc</span> <span class="pre">*</span></tt>) &#8211; The arc to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the arc in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id9">
+<h3>Polygon<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_polygon_thick">
+int <tt class="descname">display_polygon_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Form<em>&nbsp;*polygon</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_polygon_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span> <span class="pre">*</span></tt>) &#8211; The polygon to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon lined in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_strikethrough_polygon_thick">
+int <tt class="descname">display_strikethrough_polygon_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Form<em>&nbsp;*polygon</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_strikethrough_polygon_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>polygon</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Form</span> <span class="pre">*</span></tt>) &#8211; The polygon to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon lined strikethrough in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id10">
+<h3>Pentagram &amp; Hexagram<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_pentagram_thick">
+int <tt class="descname">display_pentagram_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Pentagram<em>&nbsp;*pentagram</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_pentagram_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>pentagram</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Pentagram</span> <span class="pre">*</span></tt>) &#8211; The pentagram to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the pentagram in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_hexagram_thick">
+int <tt class="descname">display_hexagram_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Pentagram<em>&nbsp;*hexagram</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_hexagram_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>hexagram</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Hexagram</span> <span class="pre">*</span></tt>) &#8211; The hexagram to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the hexagram in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id11">
+<h3>Star<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_star_thick">
+int <tt class="descname">display_star_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_star_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_flower_star_thick">
+int <tt class="descname">display_flower_star_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_flower_star_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the flower star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_strikethrough_star_thick">
+int <tt class="descname">display_strikethrough_star_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_strikethrough_star_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the strikethrough star in the current color and at the current position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.display_polygon_star_thick">
+int <tt class="descname">display_polygon_star_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Star<em>&nbsp;*star</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_polygon_star_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>star</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Star</span> <span class="pre">*</span></tt>) &#8211; The star to display.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the polygon star in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id12">
+<h3>Spiral<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.display_spiral_thick">
+int <tt class="descname">display_spiral_thick</tt><big>(</big>SDL_Renderer<em>&nbsp;*pRenderer</em>, Spiral<em>&nbsp;*spiral</em>, uint8_t<em>&nbsp;thickness</em><big>)</big><a class="headerlink" href="#c.display_spiral_thick" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pRenderer</strong> &#8211; A SDL_Renderer pointer.</li>
+<li><strong>spiral</strong> (<tt class="xref c c-type docutils literal"><span class="pre">Spiral</span> <span class="pre">*</span></tt>) &#8211; The spiral to display.</li>
+<li><strong>thickness</strong> (<tt class="xref c c-type docutils literal"><span class="pre">uint8_t</span></tt>) &#8211; The line width.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><tt class="xref c c-type docutils literal"><span class="pre">int</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">0 on success, -1 on failure.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function display the spiral in the current color and at the current position.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="define-your-own-displaying-functions">
+<h2>Define your own displaying functions<a class="headerlink" href="#define-your-own-displaying-functions" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Define your own displaying functions.</p>
+<p>You can implement your own displaying functions for per example:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Display every line from a polygon in an different color.</li>
+<li>Display severals polygons filled overlaps in differents tones from a color with sinking alpha value.</li>
+</ul>
+</div></blockquote>
+<p class="last">And whatever your brain can imagined.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Displaying forms</a><ul>
+<li><a class="reference internal" href="#display-functions">display functions</a><ul>
+<li><a class="reference internal" href="#line">Line</a></li>
+<li><a class="reference internal" href="#arc">Arc</a></li>
+<li><a class="reference internal" href="#polygon">Polygon</a></li>
+<li><a class="reference internal" href="#pentagram-hexagram">Pentagram &amp; Hexagram</a></li>
+<li><a class="reference internal" href="#star">Star</a></li>
+<li><a class="reference internal" href="#spiral">Spiral</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anti-aliasing-display-functions">Anti-aliasing display functions</a><ul>
+<li><a class="reference internal" href="#id1">Line</a></li>
+<li><a class="reference internal" href="#id2">Arc</a></li>
+<li><a class="reference internal" href="#id3">Polygon</a></li>
+<li><a class="reference internal" href="#id4">Pentagram &amp; Hexagram</a></li>
+<li><a class="reference internal" href="#id5">Star</a></li>
+<li><a class="reference internal" href="#id6">Spiral</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#thickness-settable-display-functions">Thickness settable display functions</a><ul>
+<li><a class="reference internal" href="#id7">Line</a></li>
+<li><a class="reference internal" href="#id8">Arc</a></li>
+<li><a class="reference internal" href="#id9">Polygon</a></li>
+<li><a class="reference internal" href="#id10">Pentagram &amp; Hexagram</a></li>
+<li><a class="reference internal" href="#id11">Star</a></li>
+<li><a class="reference internal" href="#id12">Spiral</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#define-your-own-displaying-functions">Define your own displaying functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Forms_generating_utils.html"
+                        title="previous chapter">Forms generating functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Operations_utils.html"
+                        title="next chapter">Operations</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Displaying_utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Operations_utils.html" title="Operations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Forms_generating_utils.html" title="Forms generating functions"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

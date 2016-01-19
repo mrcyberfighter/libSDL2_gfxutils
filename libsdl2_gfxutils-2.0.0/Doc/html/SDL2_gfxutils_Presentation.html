@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SDL2_gfxutils presentation &mdash; SDL2_gfxutils 2.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="SDL2_gfxutils 2.0.0 documentation" href="index.html" />
+    <link rel="next" title="SDL2_gfxutils defined types" href="SDL2_gfxutils_Defined_types.html" />
+    <link rel="prev" title="Welcome to SDL2_gfxutils documentation’s !" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Defined_types.html" title="SDL2_gfxutils defined types"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to SDL2_gfxutils documentation’s !"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sdl2-gfxutils-presentation">
+<h1>SDL2_gfxutils presentation<a class="headerlink" href="#sdl2-gfxutils-presentation" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">library:</th><td class="field-body"><strong>SDL2_gfxutils</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body">2.0.0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">platform:</th><td class="field-body"><strong>Linux</strong>, <strong>Windows</strong> and <strong>Posix</strong> compliant (not tested).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">compiler:</th><td class="field-body"><strong>gcc</strong>, <strong>g++</strong>, <strong>clang</strong>, <strong>mingw32</strong>, <strong>mingw-w64-686</strong>, <strong>mingw-w64-x86_64</strong>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">synopsis:</th><td class="field-body"><strong>SDL2_gfxutils</strong> a <strong>SDL2_gfx</strong> forms generating and manipulating helper functions set</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Licence:</th><td class="field-body">GPLv3</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body">Eddie Brüggemann &lt;<a class="reference external" href="mailto:mrcyberfighter&#37;&#52;&#48;gmail&#46;com">mrcyberfighter<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="sdl2-gfxutils-brief-history">
+<h2>SDL2_gfxutils brief history<a class="headerlink" href="#sdl2-gfxutils-brief-history" title="Permalink to this headline">¶</a></h2>
+<p><strong>SDL2_gfxutils</strong> is issue from an collection of functions that i have implemented over the years, everytime i had a idea of a form to generate i try to implemented it as a function generating the sequence of coordinates or performing operations on a form.
+At start i implemented my ideas with the <em>python pygame</em> module, which is based on the <strong>SDL</strong> library, by start i get only the functions to set a pixel according the a radius and an angle offset, so <strong>SDL2_gfxutils</strong> is a translation of <em>python</em> functions into the <strong>C</strong> language and the <strong>SDL2_gfx</strong> standart.</p>
+<p><strong>SDL2_gfxutils</strong> has been entirely rewritten after the first version release which suffers under severals bugs and was not handy to use, mostly for animations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">After the disaster everything are right.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="the-new-implementation-from-sdl2-gfxutils">
+<h3>The new implementation from SDL2_gfxutils<a class="headerlink" href="#the-new-implementation-from-sdl2-gfxutils" title="Permalink to this headline">¶</a></h3>
+<p>All forms generating functions now return a <strong>pointer</strong> on a specific <strong>SDL2_gfxutils</strong> type compatible with the generic <strong>SDL2_gfxutils</strong> <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> type.</p>
+<p>The <strong>pointers</strong> permit to <strong>manipulate</strong> the forms for <strong>transforming</strong> or <strong>animating</strong> (<em>rotating</em>, <em>scaling</em>, <em>translating</em>, <em>mirroring</em>) functions <strong>easily</strong>.</p>
+<p>The <strong>pointers</strong> can be destroyed at your convienence of course. And this mechanic is massively used in form generating functions. So that no memory space is lost.</p>
+<p>The generic <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> type has been change to contains coordinates from type <tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>, instead of type <tt class="xref c c-type docutils literal"><span class="pre">int16_t</span></tt>, so that the <strong>computation</strong> like <em>rotating</em>, <em>scaling</em>, <em>translating</em>, <em>mirroring</em> are now exactly executed.</p>
+<p>The subtype <tt class="xref c c-type docutils literal"><span class="pre">Pixel</span></tt> members are now from type <tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>.</p>
+<ul class="simple">
+<li>Some functions have been removed because they become useless, because of the new pointers system.</li>
+<li>Some functions have been added for replacing the missing features, with many advantages, mostly for transforming or animating forms in the SDL2 mainloop.</li>
+<li>All functions have been improved, favor of the pointers mechanic.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>SDL2_gfxutils presentation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>SDL2_gfxutils</strong> is en extension for the <strong>SDL2_gfx</strong> library helping you for the creation of the fantastics drawing your brain can imagined.</p>
+<p><strong>SDL2_gfxutils</strong> provide severals functions for severals usages:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A lot of forms generating functions, from the simple <strong>polygons</strong>, through <strong>stars</strong>, to the fantastic <strong>fractals</strong>.</li>
+<li>High-level Transforming or animating functions (<em>rotating</em>, <em>scaling</em>, <em>translating</em> and <em>mirroring</em>) acting on an entire <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a>.</li>
+<li>Low-level Transforming or animating functions (<em>rotating</em>, <em>scaling</em>, <em>translating</em> and <em>mirroring</em>) acting on a single <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#pixel-type"><em>Pixel</em></a>.</li>
+<li>Memory management and check functions.</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body"><a class="reference internal" href="SDL2_gfxutils_Defined_types.html#sdl2-gfxutils-others"><em>I think it&#8217;s easy to adapt the SDL2_gfxutils library to be compatible with others libraries than the SDL2 library</em></a>.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="operations-functions-which-transform-a-form">
+<h3>Operations functions which transform a form:<a class="headerlink" href="#operations-functions-which-transform-a-form" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Rotation</strong> of a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> around his center from the wanted <strong>degrees</strong>.</li>
+<li><strong>Scaling</strong> of a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> from the wanted <strong>factor</strong>.</li>
+<li><strong>Translation</strong> of a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> from the wanted <tt class="xref py py-data docutils literal"><span class="pre">x</span></tt> and <tt class="xref py py-data docutils literal"><span class="pre">y</span></tt> values.</li>
+<li><strong>Mirroring</strong> over the <tt class="xref py py-data docutils literal"><span class="pre">X</span></tt> or <tt class="xref py py-data docutils literal"><span class="pre">Y</span></tt> <strong>axes</strong> according to an <tt class="xref py py-data docutils literal"><span class="pre">center</span></tt> <strong>point</strong>.</li>
+</ul>
+</div>
+<div class="section" id="form-setters-functions-which-change-the-settings-of-a-form">
+<h3>Form setters functions which change the settings of a form<a class="headerlink" href="#form-setters-functions-which-change-the-settings-of-a-form" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Setting a new <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt> of a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> with optionally translating all coordinates.</li>
+<li>Setting a new <tt class="xref c c-data docutils literal"><span class="pre">radius</span></tt> what equal to scaling a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> except that instead a factor you can set a new size directly.</li>
+<li>Setting a new <tt class="xref c c-data docutils literal"><span class="pre">color</span></tt> for the <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> or a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#line-type"><em>Line</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="form-getters-functions-to-get-settings-of-a-form">
+<h3>Form getters functions to get settings of a form<a class="headerlink" href="#form-getters-functions-to-get-settings-of-a-form" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Getting the current <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> <tt class="xref c c-data docutils literal"><span class="pre">center</span></tt> value.</p>
+</li>
+<li><p class="first">Getting the current <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> <tt class="xref c c-data docutils literal"><span class="pre">color</span></tt>.</p>
+</li>
+<li><p class="first">Getting the current <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> <tt class="xref c c-data docutils literal"><span class="pre">length</span></tt> (often the <strong>radius</strong>).</p>
+</li>
+<li><p class="first">Getting the current <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> <tt class="xref c c-data docutils literal"><span class="pre">orientation</span></tt> (<strong>offset</strong> defining the incline of a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a>).</p>
+</li>
+<li><p class="first">Getting the current <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> <tt class="xref c c-data docutils literal"><span class="pre">real_length</span></tt> (value defining the <strong>distance</strong> between the <tt class="xref py py-data docutils literal"><span class="pre">center</span></tt> and the <strong>most distant coordinate</strong> from the <tt class="xref py py-data docutils literal"><span class="pre">center</span></tt>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can use this member to build bounding boxes for collision detection per example.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="displaying-forms-functions">
+<h3>Displaying forms functions<a class="headerlink" href="#displaying-forms-functions" title="Permalink to this headline">¶</a></h3>
+<p>Each <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> type has specific displaying functions.</p>
+<p>Use each <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a> specific displaying function else the result will be undefined.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">But you can use the displaying function you want to display a <a class="reference internal" href="SDL2_gfxutils_Defined_types.html#form-type"><em>Form</em></a>, something the output is surprising.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For every displaying function it exist a <a class="reference internal" href="SDL2_gfxutils_Displaying_utils.html#thickness-settable-functions"><em>thickness setttable displaying function</em></a> and an <a class="reference internal" href="SDL2_gfxutils_Displaying_utils.html#anti-aliasing-functions"><em>anti-aliasing displaying function</em></a> except for the filled forms functions.</p>
+</div>
+</div>
+<div class="section" id="length-and-middle-between-2-pixels">
+<h3>Length and middle Between 2 Pixels<a class="headerlink" href="#length-and-middle-between-2-pixels" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="SDL2_gfxutils_Base_functions.html#get-distance-pixels"><em>Measure of the length of a Line</em></a>.</li>
+<li><a class="reference internal" href="SDL2_gfxutils_Base_functions.html#get-middle-from-line"><em>Get the Middle Pixel of a Line</em></a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="angles">
+<span id="angle-settings-definition"></span><h2>Angles<a class="headerlink" href="#angles" title="Permalink to this headline">¶</a></h2>
+<p>In the 2D display from SDL2: the <strong>X axes</strong> goes from left to right and the <strong>Y axes</strong> from up to down.</p>
+<p>For the multiple used <tt class="xref py py-data docutils literal"><span class="pre">orientation</span></tt> parameter from type <tt class="xref c c-type docutils literal"><span class="pre">float</span></tt>. Sea the following image to become acquainted with the values and with the conventional angle values.</p>
+<img alt="_images/mark.png" src="_images/mark.png" />
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">note:</th><td class="field-body">You can sea that 3 o&#8217;clock represent 0 degrees.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="animations-advice">
+<span id="animations-advices"></span><h2>Animations advice<a class="headerlink" href="#animations-advice" title="Permalink to this headline">¶</a></h2>
+<p>Polygon and forms are not only displayable object but can also be an guideline for the execution of an animation which moving a form trough the way of the lines from the polygon or the form.</p>
+<p><strong>SDL2_gfxutils</strong> provide an function <a class="reference internal" href="SDL2_gfxutils_Miscellaneous_utils.html#compute-trajectory-function"><em>compute_trajectory()</em></a> with which you can construct an moving line
+by moving a form through the pixels of the <tt class="xref py py-data docutils literal"><span class="pre">positions</span></tt> array by translating it with the <a class="reference internal" href="SDL2_gfxutils_Operations_utils.html#translate-form-function"><em>translate_form()</em></a> function.</p>
+</div>
+<div class="section" id="sdl2-gfxutils-documentation-license">
+<h2>SDL2_gfxutils Documentation License<a class="headerlink" href="#sdl2-gfxutils-documentation-license" title="Permalink to this headline">¶</a></h2>
+<p>This &#8216;SDL2_gfxutils Documentation&#8217; is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.</p>
+<p>To view a copy of this license, visit &lt;<a class="reference external" href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</a>&gt;.</p>
+<img alt="_images/by-nc.png" src="_images/by-nc.png" />
+</div>
+<div class="section" id="sdl2-gfxutils-license">
+<h2>SDL2_gfxutils License<a class="headerlink" href="#sdl2-gfxutils-license" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SDL2_gfxutils is under copyright from the GNU General Public License.</p>
+</div>
+<p><strong>SDL2_gfxutils</strong> a <strong>SDL2_gfx</strong> forms generating and manipulating helper functions set.</p>
+<p>Copyright (©) 2016 Brüggemann Eddie &lt;<a class="reference external" href="mailto:mrcyberfighter&#37;&#52;&#48;gmail&#46;com">mrcyberfighter<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;.</p>
+<p><strong>SDL2_gfxutils</strong> is free software: you can redistribute it and/or modify</p>
+<p>it under the terms of the GNU General Public License as published by</p>
+<p>the Free Software Foundation, either version 3 of the License, or</p>
+<p>(at your option) any later version.</p>
+<p><strong>SDL2_gfxutils</strong> is distributed in the hope that it will be useful,</p>
+<p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p>
+<p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the</p>
+<p>GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License</p>
+<p>along with <strong>SDL2_gfxutils</strong>. If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;</p>
+</div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<div class="topic">
+<p class="topic-title first">Thank&#8217;s</p>
+<p>Thank&#8217;s to my <strong>mother</strong>, <strong>my family</strong> and <strong>the doctors</strong>.</p>
+<p><strong>Stay away from drugs:</strong> drugs <strong>destroy</strong> your <em>brain</em> and your <em>life</em>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/SDL_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SDL2_gfxutils presentation</a><ul>
+<li><a class="reference internal" href="#sdl2-gfxutils-brief-history">SDL2_gfxutils brief history</a><ul>
+<li><a class="reference internal" href="#the-new-implementation-from-sdl2-gfxutils">The new implementation from SDL2_gfxutils</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">SDL2_gfxutils presentation</a><ul>
+<li><a class="reference internal" href="#operations-functions-which-transform-a-form">Operations functions which transform a form:</a></li>
+<li><a class="reference internal" href="#form-setters-functions-which-change-the-settings-of-a-form">Form setters functions which change the settings of a form</a></li>
+<li><a class="reference internal" href="#form-getters-functions-to-get-settings-of-a-form">Form getters functions to get settings of a form</a></li>
+<li><a class="reference internal" href="#displaying-forms-functions">Displaying forms functions</a></li>
+<li><a class="reference internal" href="#length-and-middle-between-2-pixels">Length and middle Between 2 Pixels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#angles">Angles</a></li>
+<li><a class="reference internal" href="#animations-advice">Animations advice</a></li>
+<li><a class="reference internal" href="#sdl2-gfxutils-documentation-license">SDL2_gfxutils Documentation License</a></li>
+<li><a class="reference internal" href="#sdl2-gfxutils-license">SDL2_gfxutils License</a></li>
+<li><a class="reference internal" href="#credits">Credits</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to SDL2_gfxutils documentation&#8217;s !</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SDL2_gfxutils_Defined_types.html"
+                        title="next chapter">SDL2_gfxutils defined types</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SDL2_gfxutils_Presentation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SDL2_gfxutils_Defined_types.html" title="SDL2_gfxutils defined types"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to SDL2_gfxutils documentation’s !"
+             >previous</a> |</li>
+        <li><a href="index.html">SDL2_gfxutils 2.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brüggemann Eddie © Common creative.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
