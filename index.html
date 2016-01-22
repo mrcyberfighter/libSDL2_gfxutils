@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Libsdl2 gfxutils by mrcyberfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Libsdl2 gfxutils</h1>
+      <h2 class="project-tagline">libSDL2_gfxutils a SDL2_gfx helper functions set for forms generating and animation library.</h2>
+      <a href="https://github.com/mrcyberfighter/libSDL2_gfxutils" class="btn">View on GitHub</a>
+      <a href="https://github.com/mrcyberfighter/libSDL2_gfxutils/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mrcyberfighter/libSDL2_gfxutils/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="sdl2_gfxutils-presentation" class="anchor" href="#sdl2_gfxutils-presentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SDL2_gfxutils presentation</h1>
+
+<table>
+<thead>
+<tr>
+<th>:informations:</th>
+<th>SDL2_gfxutils</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:library:</td>
+<td><strong>SDL2_gfxutils</strong></td>
+</tr>
+<tr>
+<td>:version:</td>
+<td>2.0.0</td>
+</tr>
+<tr>
+<td>:platform:</td>
+<td>
+<strong>Linux</strong>, <strong>Windows</strong> and <strong>Posix</strong> compliant (not tested).</td>
+</tr>
+<tr>
+<td>:compiler:</td>
+<td>
+<strong>gcc</strong>, <strong>g++</strong>, <strong>clang</strong>, <strong>mingw32</strong>, <strong>mingw-w64-686</strong>, <strong>mingw-w64-x86_64</strong>.</td>
+</tr>
+<tr>
+<td>:synopsis:</td>
+<td>
+<strong>SDL2_gfxutils</strong> a <strong>SDL2_gfx</strong> forms generating and manipulating helper functions set</td>
+</tr>
+<tr>
+<td>:Licence:</td>
+<td>GPLv3</td>
+</tr>
+<tr>
+<td>:author:</td>
+<td>Eddie Brüggemann <a href="mailto:mrcyberfighter@gmail.com">mrcyberfighter@gmail.com</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="sdl2_gfxutils-brief-history" class="anchor" href="#sdl2_gfxutils-brief-history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SDL2_gfxutils brief history</h2>
+
+<p><strong>SDL2_gfxutils</strong> is issue from an collection of functions that i have implemented over the years, everytime i had a idea of a form to generate i try to implemented it as a function generating the sequence of coordinates or performing operations on a form.
+At start i implemented my ideas with the <em>python pygame</em> module, which is based on the <strong>SDL</strong> library, by start i get only the functions to set a pixel according the a radius and an angle offset, so <strong>SDL2_gfxutils</strong> is a translation of <em>python</em> functions into the <strong>C</strong> language and the <strong>SDL2_gfx</strong> standart.</p>
+
+<p><strong>SDL2_gfxutils</strong> has been entirely rewritten after the first version release which suffers under severals bugs and was not handy to use, mostly for animations.</p>
+
+<p>:note: After the disaster everything are right.</p>
+
+<h3>
+<a id="the-new-implementation-from-sdl2_gfxutils" class="anchor" href="#the-new-implementation-from-sdl2_gfxutils" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The new implementation from SDL2_gfxutils</h3>
+
+<p>All forms generating functions now return a <strong>pointer</strong> on a specific <strong>SDL2_gfxutils</strong> type compatible with the generic <strong>SDL2_gfxutils</strong> <code>Form</code> type.</p>
+
+<p>The <strong>pointers</strong> permit to <strong>manipulate</strong> the forms for <strong>transforming</strong> or <strong>animating</strong> (<em>rotating</em>, <em>scaling</em>, <em>translating</em>, <em>mirroring</em>) functions <strong>easily</strong>.</p>
+
+<p>The <strong>pointers</strong> can be destroyed at your convienence of course. And this mechanic is massively used in form generating functions. So that no memory space is lost.</p>
+
+<p>The generic <code>Form</code> type has been change to contains coordinates from type <code>float</code>, instead of type <code>int16_t</code>, so that the <strong>computation</strong> like <em>rotating</em>, <em>scaling</em>, <em>translating</em>, <em>mirroring</em> are now exactly executed.</p>
+
+<p>The subtype <code>Pixel</code> members are now from type <code>float</code>.</p>
+
+<ul>
+<li><p>Some functions have been removed because they become useless, because of the new pointers system.</p></li>
+<li><p>Some functions have been added for replacing the missing features, with many advantages, mostly for transforming or animating forms in the SDL2 mainloop.</p></li>
+<li><p>All functions have been improved, favor of the pointers mechanic.</p></li>
+</ul>
+
+<h2>
+<a id="sdl2_gfxutils-presentation-1" class="anchor" href="#sdl2_gfxutils-presentation-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SDL2_gfxutils presentation</h2>
+
+<p><strong>SDL2_gfxutils</strong> is en extension for the <strong>SDL2_gfx</strong> library helping you for the creation of the fantastics drawing your brain can imagined.</p>
+
+<p><strong>SDL2_gfxutils</strong> provide severals functions for severals usages:</p>
+
+<ul>
+<li><p>A lot of forms generating functions, from the simple <strong>polygons</strong>, through <strong>stars</strong>, to the fantastic <strong>fractals</strong>.</p></li>
+<li><p>High-level Transforming or animating functions (<em>rotating</em>, <em>scaling</em>, <em>translating</em> and <em>mirroring</em>) acting on an entire <code>Form</code>.</p></li>
+<li><p>Low-level Transforming or animating functions (<em>rotating</em>, <em>scaling</em>, <em>translating</em> and <em>mirroring</em>) acting on a single <code>Pixel</code>.</p></li>
+<li><p>Memory management and check functions.</p></li>
+</ul>
+
+<p><strong>:note:</strong> I think it's <strong>easy to adapt the SDL2_gfxutils</strong> library to be compatible with <strong>others libraries</strong> than the <strong>SDL2 library</strong>. It is sufficient to adapt the displaying functions (the only which <strong>require</strong> the <strong>SDL2_gfx library</strong> functionalities).</p>
+
+<h3>
+<a id="operations-functions-which-transform-a-form" class="anchor" href="#operations-functions-which-transform-a-form" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operations functions which transform a form:</h3>
+
+<ul>
+<li><p><strong>Rotation</strong> of a <code>Form</code> around his center from the wanted <strong>degrees</strong>.</p></li>
+<li><p><strong>Scaling</strong> of a <code>Form</code> from the wanted <strong>factor</strong>.</p></li>
+<li><p><strong>Translation</strong> of a <code>Form</code> from the wanted <code>x</code> and <code>y</code> values.</p></li>
+<li><p><strong>Mirroring</strong> over the <code>X</code> or <code>Y</code> <strong>axes</strong> according to an <code>center</code> <strong>point</strong>.</p></li>
+</ul>
+
+<h3>
+<a id="form-setters-functions-which-change-the-settings-of-a-form" class="anchor" href="#form-setters-functions-which-change-the-settings-of-a-form" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Form setters functions which change the settings of a form</h3>
+
+<ul>
+<li><p>Setting a new <code>center</code> of a <code>Form</code> with optionally translating all coordinates.</p></li>
+<li><p>Setting a new <code>radius</code> what equal to scaling a <code>Form</code> except that instead a factor you can set a new size directly.</p></li>
+<li><p>Setting a new <code>color</code> for the <code>Form</code> or a <code>Line</code>.</p></li>
+</ul>
+
+<h3>
+<a id="form-getters-functions-to-get-settings-of-a-form" class="anchor" href="#form-getters-functions-to-get-settings-of-a-form" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Form getters functions to get settings of a form</h3>
+
+<ul>
+<li><p>Getting the current <code>Form</code> <code>center</code> value.</p></li>
+<li><p>Getting the current <code>Form</code> <code>color</code>.</p></li>
+<li><p>Getting the current <code>Form</code> <code>length</code> (often the <strong>radius</strong>).</p></li>
+<li><p>Getting the current <code>Form</code> <code>orientation</code> (<strong>offset</strong> defining the incline of a <code>Form</code>).</p></li>
+<li>
+<p>Getting the current <code>Form</code> <code>real_length</code> (value defining the <strong>distance</strong> between the <code>center</code> and the <strong>most distant coordinate</strong> from the <code>center</code>).</p>
+
+<p><strong>:note:</strong> You can use this member to build bounding boxes for collision detection per example.</p>
+</li>
+</ul>
+
+<h3>
+<a id="displaying-forms-functions" class="anchor" href="#displaying-forms-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Displaying forms functions</h3>
+
+<p>Each <code>Form</code> type has specific displaying functions.</p>
+
+<p>Use each <code>Form</code> specific displaying function else the result will be undefined.</p>
+
+<p><strong>:note:</strong> But you can use the displaying function you want to display a <code>Form</code>, something the output is surprising.</p>
+
+<p><strong>:note:</strong> For every displaying function it exist a <code>thickness setttable displaying function</code> and an <code>anti-aliasing displaying function</code> except for the filled forms functions.</p>
+
+<h3>
+<a id="length-and-middle-between-2-pixels" class="anchor" href="#length-and-middle-between-2-pixels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Length and middle Between 2 Pixels</h3>
+
+<ul>
+<li><p>Measure of the length of a <code>Line</code>.</p></li>
+<li><p>Get the Middle <code>Pixel</code> of a <code>Line</code>.</p></li>
+</ul>
+
+<h2>
+<a id="angles" class="anchor" href="#angles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Angles</h2>
+
+<p>In the 2D display from SDL2: the <strong>X axes</strong> goes from left to right and the <strong>Y axes</strong> from up to down.</p>
+
+<p>For the multiple used <code>orientation</code> parameter from type <code>float</code>. Sea the following image to become acquainted with the values and with the conventional angle values.</p>
+
+<p><img src="https://raw.githubusercontent.com/mrcyberfighter/libSDL2_gfxutils/master/mark.png" alt=""></p>
+
+<p><strong>:note:</strong> You can sea that 3 o'clock represent 0 degrees.</p>
+
+<h2>
+<a id="animations-advice" class="anchor" href="#animations-advice" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Animations advice</h2>
+
+<p>Polygon and forms are not only displayable object but can also be an guideline for the execution of an animation which moving a form trough the way of the lines from the polygon or the form.</p>
+
+<p><strong>SDL2_gfxutils</strong> provide an function <code>compute_trajectory()</code> with which you can construct an moving line
+by moving a form through the pixels of the <code>positions</code> array by translating it with the <code>translate_form()</code> function.</p>
+
+<h2>
+<a id="download-sdl2_gfxutils" class="anchor" href="#download-sdl2_gfxutils" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download SDL2_gfxutils</h2>
+
+<p>You can find archive files for following compilers:</p>
+
+<ul>
+<li><p><strong>gcc</strong> </p></li>
+<li><p><strong>g++</strong> </p></li>
+<li><p><strong>clang</strong> </p></li>
+<li><p><strong>mingw32</strong> </p></li>
+<li><p><strong>mingw-w64-i686</strong> </p></li>
+<li><p><strong>mingw-w64-x86_64</strong></p></li>
+</ul>
+
+<p>For <strong>Linux</strong>, <strong>Posix</strong> <em>compliant systems</em> (<strong>not tested</strong>) and <strong>Windows</strong> at the <a href="https://raw.githubusercontent.com/mrcyberfighter/libSDL2_gfxutils/master/by-nc.png">libSDL2_gfxutils homepage</a>.  </p>
+
+<h2>
+<a id="sdl2_gfxutils-documentation-license" class="anchor" href="#sdl2_gfxutils-documentation-license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SDL2_gfxutils Documentation License</h2>
+
+<p>The libSDL2_gfxutils documentation is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.</p>
+
+<p>To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</a>.</p>
+
+<p><img src="https://raw.githubusercontent.com/mrcyberfighter/libSDL2_gfxutils/master/by-nc.png" alt=""></p>
+
+<h2>
+<a id="sdl2_gfxutils-license-gplv3" class="anchor" href="#sdl2_gfxutils-license-gplv3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SDL2_gfxutils License: GPLv3.</h2>
+
+<p><strong>:note:</strong> <code>SDL2_gfxutils is under copyright from the GNU General Public License.</code></p>
+
+<p><strong>SDL2_gfxutils</strong> a <strong>SDL2_gfx</strong> forms generating and manipulating helper functions set.</p>
+
+<p>Copyright (©) 2016 Brüggemann Eddie <a href="mailto:mrcyberfighter@gmail.com">mrcyberfighter@gmail.com</a>.           </p>
+
+<p><strong>SDL2_gfxutils</strong> is free software: you can redistribute it and/or modify         </p>
+
+<p>it under the terms of the GNU General Public License as published by    </p>
+
+<p>the Free Software Foundation, either version 3 of the License, or       </p>
+
+<p>(at your option) any later version.                                     </p>
+
+<p><strong>SDL2_gfxutils</strong> is distributed in the hope that it will be useful,              </p>
+
+<p>but WITHOUT ANY WARRANTY; without even the implied warranty of          </p>
+
+<p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            </p>
+
+<p>GNU General Public License for more details.                             </p>
+
+<p>You should have received a copy of the GNU General Public License       </p>
+
+<p>along with <strong>SDL2_gfxutils</strong>. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>          </p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Thanks to my <strong>mother</strong>, <strong>my family</strong> and <strong>the doctors</strong>.</p>
+
+<p><strong>Stay away from drugs:</strong> drugs <strong>destroy</strong> your <em>brain</em> and your <em>life</em>.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mrcyberfighter/libSDL2_gfxutils">Libsdl2 gfxutils</a> is maintained by <a href="https://github.com/mrcyberfighter">mrcyberfighter</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
